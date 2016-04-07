@@ -1,0 +1,90 @@
+<html>
+<title>Mapper Microservice Demo</title>
+
+    <head>
+        
+        <!-- BEGIN COPY / PASTE   //   THESE LINES MUST BE INCLUDED, VERBATIM -->
+        
+        <!-- Load JQuery which is required -->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+        <!-- Load the Paper.js library -->
+        <script type="text/javascript" src="js/paper.js"></script>
+        <script>
+        
+            // this object serves as our interface to the mapper library. 
+            var mapper = {};
+            // the "init_mapper" function gets called by the mapper library once it loads everything. 
+            window.init_mapper = function() { 
+
+                $(window).trigger("mapper_loaded");
+                
+            };
+        
+        </script>
+        
+        <!-- Load external PaperScript and associate it with the canvas ID you set below -->
+        <script type="text/paperscript" src="js/mapper.js" canvas="canvas-1"></script>
+        
+        <!-- END COPY / PASTE -->
+    
+    </head>
+    
+    <body>
+        
+        <h2>Mapper Demo Page</h2>
+    
+        <!-- define a canvas element that will be used to display the map -->
+        <div class="canvas">
+            <canvas id="canvas-1" height="298" width="538" resize="true"></canvas>
+        </div>
+        
+        <!-- Used for background, see example below in script section -->
+        <!-- Note ideally background size is the same as that of the canvas above -->
+        <img hidden="true" id="sample_background" src="img/FloorPlan.png" height="298" width="538"> 
+        <img hidden="true" id="sample_background_2" src="img/FloorPlan2jpg"height="298" width="538"> 
+        
+    
+    </body>
+    
+    
+    <script>
+        
+        // demo functions.
+        // note how we listen for the "mapper_loaded" event before we do anything
+        
+        $(window).on( "mapper_loaded", function( event ) {
+            
+            // to change background, image must first be loaded in a hidden <img> element, then the id passed to the function below
+            // in this demo, we use the img with id 'sample_background' which we defined in the <body> above.
+            mapper.changeBackground('sample_background');
+            
+            // add a circle named 'dave', at position (20,30), with a radius of 10 and a red color
+            mapper.addCircle('dave', 20, 30 , 10, 'red');
+            
+            // add another circle named "foo", at position (80,30), with a radius of 10 and a blue color
+            mapper.addCircle('foo', 80, 30 , 10, 'blue');
+            
+            // move the circle named dave we defined above to position (70,200)
+            mapper.moveCircle('dave', 70, 200);   
+            
+            // move the circle named foo we defined above to position (200,200)
+            mapper.moveCircle('foo', 200, 200);
+            
+            // wait for 3 seconds and change background to second sample
+            setTimeout(function(){ 
+                mapper.changeBackground('sample_background_2'); 
+            }, 3000);
+            
+            // wait for 5 seconds and move 'dave' back to original position
+            setTimeout(function(){ 
+                mapper.moveCircle('dave', 20, 30);  
+            }, 5000);
+            
+            
+        });
+        
+    </script>
+    
+
+
+</html>
