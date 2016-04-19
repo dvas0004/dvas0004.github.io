@@ -38,6 +38,9 @@
             <canvas id="canvas-1" height="298" width="538" resize="true"></canvas>
         </div>
         
+        <button id="getLoc">Get Location</button>
+        <button id="drawZone">Draw Zone</button>
+        
         <!-- Used for background, see example below in script section -->
         <!-- Note ideally background size is the same as that of the canvas above -->
         <img hidden="true" id="sample_background" src="img/FloorPlan.png" height="298" width="538"> 
@@ -80,8 +83,50 @@
                 mapper.moveCircle('dave', 20, 30);  
             }, 5000);
             
+            // wait for 7 seconds and create a rectangle 'rec1'
+            setTimeout(function(){ 
+                mapper.addRectangle('rec1', 20, 30, 40, 60, 'blue');  
+            }, 7000);
+            
+            // wait for 17 seconds and remove rectangle 'rec1'
+            setTimeout(function(){ 
+                mapper.removeRectangle('rec1');  
+            }, 17000);
+            
+            // setGetCoords flag controls if we should report the coords when the user next clicks the mouse
+            // this would normally be set by some UI button
+            $("#getLoc").click(function(){
+                mapper.setGetCoords(true);
+            });
+            
+            
+            // setDrawZone flag controls if we should draw a rectangle when the user next clicks and holds the mouse
+            // this would normally be set by some UI button
+            $("#drawZone").click(function(){
+                mapper.setDrawZone(true);                     
+            });
+            
+             // if you are interested in receiving the (x,y) co-ords when a user clicks the map, subscribe to the "map_click" events as shown below,
+            // otherwise, switch it off: http://api.jquery.com/off/
+            $(window).on( "map_click", function( event, x, y ){
+                console.log(x);
+                console.log(y);
+                mapper.setGetCoords(false);
+            });
+
+            // if you are interested in receiving the co-ords when a user adds a zone to the map, subscribe to the "zone_added" events as shown below,
+            // otherwise, switch it off: http://api.jquery.com/off/        
+            $(window).on( "zone_added", function( event, from_x, from_y, to_x, to_y ){
+                console.log(from_x);
+                console.log(from_y);
+                console.log(to_x);
+                console.log(to_y);
+            });
+            
             
         });
+        
+       
         
     </script>
     
