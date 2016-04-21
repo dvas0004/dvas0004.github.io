@@ -8,6 +8,7 @@ var get_cords = false;
 // in-memory storage to hold all my circle objects
 var circles = new Array();
 var rectangles = new Array();
+var texts = new Array();
 
 
 // these functions are our interface to the outside world and can be called from external JS sources
@@ -20,6 +21,24 @@ this.setDrawZone = function(state) {
 
 this.setGetCoords = function(state) {
   get_cords = state;  
+};
+
+
+this.addText = function(id, x,y,text_content,color) {
+    var text = new PointText(new Point(x, y));
+    //text.justification = 'right';
+    text.fillColor = color;
+    text.content = text_content;
+    
+    texts[id] = {text:text, destination:new Point(x, y)};
+    
+};
+
+this.removeText = function(id) {
+    var text = texts[id].text;
+    text.remove();
+    texts[id] = undefined;
+    
 };
 
 // add a circle to the map
@@ -69,6 +88,15 @@ this.moveCircle = function(id, x, y) {
             break;
         }
     }
+    
+};
+
+// move a particular text to an arbitrary point on the map
+// parameters: id, destination x, destination y
+this.moveText = function(id, x, y) {
+    
+    var newDestination = new Point(x,y)
+    texts[id].destination= newDestination;
     
 };
 
@@ -146,6 +174,17 @@ function onFrame(event) {
         
     }
     
+    // loop through all texts and see if they need to be moved
+    for (i in texts) {
+        if (texts[i].text.position.equals(texts[i].destination)){
+            continue
+        } else {
+            var text = texts[i].text;
+            var vector = texts[i].destination - text.position;
+            text.position += vector/30;
+        }
+            
+    }
 }
 
 
