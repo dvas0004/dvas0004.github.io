@@ -1,0 +1,661 @@
+<html>
+        <head>
+            <title>TLN Real Estate</title>
+            <meta name="viewport" content="initial-scale=1.0">
+            <meta charset="utf-8">
+             <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+                integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+                crossorigin=""/>
+             
+            <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+                integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+                crossorigin=""></script>
+
+            <style>
+            #map {
+                height: 100%;
+            }
+            /* Optional: Makes the sample page fill the window. */
+            html, body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+        <body>
+            <div id="map"></div>
+        <script>
+
+                function perc2color(perc) {
+                    var r, g, b = 0;
+                    if(perc < 50) {
+                        r = 255;
+                        g = Math.round(5.1 * perc);
+                    }
+                    else {
+                        g = 255;
+                        r = Math.round(510 - 5.10 * perc);
+                    }
+                    var h = r * 0x10000 + g * 0x100 + b * 0x1;
+                    return '#' + ('000000' + h.toString(16)).slice(-6);
+                }
+
+                var mymap = L.map('map').setView([59.437291, 24.745194], 12);
+                L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZHZhczAwMDQiLCJhIjoiY2prczdrMDRmMTg4ejNxbG1ndXFqYjZ3biJ9.BFxa0UpSh3dHg2pmDZSDYA', {
+                    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                    maxZoom: 18,
+                    id: 'mapbox.dark',
+                    accessToken: 'pk.eyJ1IjoiZHZhczAwMDQiLCJhIjoiY2prczdrMDRmMTg4ejNxbG1ndXFqYjZ3biJ9.BFxa0UpSh3dHg2pmDZSDYA'
+                }).addTo(mymap);
+
+                var circle0= L.circle([59.4494102, 24.6022362], { color: perc2color(28.205128205128204), fillColor: perc2color(28.205128205128204), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle0.bindPopup('3500.0')
+            var circle1= L.circle([59.4307766, 24.6164476], { color: perc2color(59.89590508993494), fillColor: perc2color(59.89590508993494), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle1.bindPopup('1955.0746268656717')
+            var circle2= L.circle([59.4476747, 24.6048839], { color: perc2color(31.284356093344854), fillColor: perc2color(31.284356093344854), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle2.bindPopup('3349.887640449438')
+            var circle3= L.circle([59.4273976, 24.6620711], { color: perc2color(32.705389848246995), fillColor: perc2color(32.705389848246995), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle3.bindPopup('3280.612244897959')
+            var circle4= L.circle([59.4412477, 24.6214934], { color: perc2color(45.39969834087481), fillColor: perc2color(45.39969834087481), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle4.bindPopup('2661.764705882353')
+            var circle5= L.circle([59.4286919, 24.6174966999999], { color: perc2color(55.15384615384615), fillColor: perc2color(55.15384615384615), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle5.bindPopup('2186.25')
+            var circle6= L.circle([59.4284287, 24.6532278], { color: perc2color(54.10639112131649), fillColor: perc2color(54.10639112131649), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle6.bindPopup('2237.313432835821')
+            var circle7= L.circle([59.43007, 24.6088777], { color: perc2color(63.78600823045267), fillColor: perc2color(63.78600823045267), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle7.bindPopup('1765.432098765432')
+            var circle8= L.circle([59.428499, 24.6590842000001], { color: perc2color(60.31878594759331), fillColor: perc2color(60.31878594759331), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle8.bindPopup('1934.459185054826')
+            var circle9= L.circle([59.4431731, 24.6042616], { color: perc2color(65.30920060331826), fillColor: perc2color(65.30920060331826), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle9.bindPopup('1691.1764705882354')
+            var circle10= L.circle([59.4402831, 24.586248], { color: perc2color(60.83916083916084), fillColor: perc2color(60.83916083916084), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle10.bindPopup('1909.090909090909')
+            var circle11= L.circle([59.4291286, 24.6208302], { color: perc2color(60.19900497512438), fillColor: perc2color(60.19900497512438), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle11.bindPopup('1940.2985074626865')
+            var circle12= L.circle([59.4217374, 24.644323], { color: perc2color(72.05905205905206), fillColor: perc2color(72.05905205905206), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle12.bindPopup('1362.121212121212')
+            var circle13= L.circle([59.4122063, 24.652367], { color: perc2color(73.67317259854573), fillColor: perc2color(73.67317259854573), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle13.bindPopup('1283.4328358208954')
+            var circle14= L.circle([59.4101791, 24.664391], { color: perc2color(56.04395604395605), fillColor: perc2color(56.04395604395605), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle14.bindPopup('2142.8571428571427')
+            var circle15= L.circle([59.4151079, 24.6390375999999], { color: perc2color(64.79142747799463), fillColor: perc2color(64.79142747799463), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle15.bindPopup('1716.4179104477612')
+            var circle16= L.circle([59.4174708, 24.6519937], { color: perc2color(69.08631274828457), fillColor: perc2color(69.08631274828457), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle16.bindPopup('1507.0422535211267')
+            var circle17= L.circle([59.4081695, 24.6537809], { color: perc2color(60.13546202225448), fillColor: perc2color(60.13546202225448), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle17.bindPopup('1943.3962264150944')
+            var circle18= L.circle([59.4082737, 24.6322742], { color: perc2color(74.05591559437713), fillColor: perc2color(74.05591559437713), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle18.bindPopup('1264.7741147741149')
+            var circle19= L.circle([59.4080655, 24.6289074], { color: perc2color(69.94035108789207), fillColor: perc2color(69.94035108789207), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle19.bindPopup('1465.4078844652615')
+            var circle20= L.circle([59.4173936, 24.6379726], { color: perc2color(66.3222349789514), fillColor: perc2color(66.3222349789514), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle20.bindPopup('1641.7910447761194')
+            var circle21= L.circle([59.4159998, 24.652865], { color: perc2color(69.23076923076923), fillColor: perc2color(69.23076923076923), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle21.bindPopup('1500.0')
+            var circle22= L.circle([59.4180542, 24.6496276], { color: perc2color(73.92385392385393), fillColor: perc2color(73.92385392385393), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle22.bindPopup('1271.2121212121212')
+            var circle23= L.circle([59.4113972, 24.644576], { color: perc2color(73.30373330373331), fillColor: perc2color(73.30373330373331), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle23.bindPopup('1301.4430014430013')
+            var circle24= L.circle([59.4115394791556, 24.6462824707772], { color: perc2color(67.24071947952545), fillColor: perc2color(67.24071947952545), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle24.bindPopup('1597.0149253731342')
+            var circle25= L.circle([59.4121599, 24.6506407], { color: perc2color(72.64957264957265), fillColor: perc2color(72.64957264957265), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle25.bindPopup('1333.3333333333333')
+            var circle26= L.circle([59.4135051, 24.6417387], { color: perc2color(73.64993215739484), fillColor: perc2color(73.64993215739484), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle26.bindPopup('1284.5658073270015')
+            var circle27= L.circle([59.4203063, 24.644872], { color: perc2color(72.05905205905206), fillColor: perc2color(72.05905205905206), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle27.bindPopup('1362.121212121212')
+            var circle28= L.circle([59.4138666, 24.6425851], { color: perc2color(67.49506903353057), fillColor: perc2color(67.49506903353057), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle28.bindPopup('1584.6153846153845')
+            var circle29= L.circle([59.4161725, 24.6543891], { color: perc2color(72.99145299145299), fillColor: perc2color(72.99145299145299), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle29.bindPopup('1316.6666666666667')
+            var circle30= L.circle([59.4114429, 24.6439719], { color: perc2color(76.73172598545733), fillColor: perc2color(76.73172598545733), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle30.bindPopup('1134.3283582089553')
+            var circle31= L.circle([59.411667, 24.6414913], { color: perc2color(76.91585409895269), fillColor: perc2color(76.91585409895269), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle31.bindPopup('1125.3521126760563')
+            var circle32= L.circle([59.4122499, 24.6471566], { color: perc2color(61.02564102564102), fillColor: perc2color(61.02564102564102), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle32.bindPopup('1900.0')
+            var circle33= L.circle([59.4189952, 24.6461737], { color: perc2color(71.25097125097125), fillColor: perc2color(71.25097125097125), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle33.bindPopup('1401.5151515151515')
+            var circle34= L.circle([59.4156795, 24.6379056], { color: perc2color(74.7534516765286), fillColor: perc2color(74.7534516765286), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle34.bindPopup('1230.7692307692307')
+            var circle35= L.circle([59.4129859, 24.6397382], { color: perc2color(71.59763313609467), fillColor: perc2color(71.59763313609467), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle35.bindPopup('1384.6153846153845')
+            var circle36= L.circle([59.4138071, 24.6407417], { color: perc2color(69.69696969696969), fillColor: perc2color(69.69696969696969), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle36.bindPopup('1477.2727272727273')
+            var circle37= L.circle([59.4164205, 24.640403], { color: perc2color(73.49112426035504), fillColor: perc2color(73.49112426035504), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle37.bindPopup('1292.3076923076924')
+            var circle38= L.circle([59.4079486, 24.6380102], { color: perc2color(68.91996891996891), fillColor: perc2color(68.91996891996891), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle38.bindPopup('1515.1515151515152')
+            var circle39= L.circle([59.4125633, 24.642913], { color: perc2color(64.25796425796426), fillColor: perc2color(64.25796425796426), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle39.bindPopup('1742.4242424242425')
+            var circle40= L.circle([59.4080304, 24.6343649], { color: perc2color(66.81749622926094), fillColor: perc2color(66.81749622926094), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle40.bindPopup('1617.6470588235295')
+            var circle41= L.circle([59.4125203, 24.6486598], { color: perc2color(71.0955710955711), fillColor: perc2color(71.0955710955711), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle41.bindPopup('1409.090909090909')
+            var circle42= L.circle([59.4054036, 24.6784544], { color: perc2color(66.83760683760684), fillColor: perc2color(66.83760683760684), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle42.bindPopup('1616.6666666666667')
+            var circle43= L.circle([59.4049357, 24.6969931], { color: perc2color(70.24087024087024), fillColor: perc2color(70.24087024087024), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle43.bindPopup('1450.7575757575758')
+            var circle44= L.circle([59.408735146917, 24.677059573975], { color: perc2color(71.34717134717135), fillColor: perc2color(71.34717134717135), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle44.bindPopup('1396.8253968253969')
+            var circle45= L.circle([59.4049876, 24.6813901], { color: perc2color(70.44136191677175), fillColor: perc2color(70.44136191677175), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle45.bindPopup('1440.983606557377')
+            var circle46= L.circle([59.4044154, 24.6574315], { color: perc2color(67.10875331564986), fillColor: perc2color(67.10875331564986), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle46.bindPopup('1603.448275862069')
+            var circle47= L.circle([59.4101791, 24.664391], { color: perc2color(56.04395604395605), fillColor: perc2color(56.04395604395605), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle47.bindPopup('2142.8571428571427')
+            var circle48= L.circle([59.4023167, 24.6754526], { color: perc2color(74.7008547008547), fillColor: perc2color(74.7008547008547), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle48.bindPopup('1233.3333333333333')
+            var circle49= L.circle([59.4077771, 24.688536], { color: perc2color(68.64228667507356), fillColor: perc2color(68.64228667507356), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle49.bindPopup('1528.688524590164')
+            var circle50= L.circle([59.402811936488, 24.680500526028], { color: perc2color(69.37555079944605), fillColor: perc2color(69.37555079944605), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle50.bindPopup('1492.941898527005')
+            var circle51= L.circle([59.4075516, 24.6709958], { color: perc2color(73.67521367521367), fillColor: perc2color(73.67521367521367), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle51.bindPopup('1283.3333333333333')
+            var circle52= L.circle([59.4081695, 24.6537809], { color: perc2color(60.13546202225448), fillColor: perc2color(60.13546202225448), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle52.bindPopup('1943.3962264150944')
+            var circle53= L.circle([59.4076569, 24.6820049], { color: perc2color(71.41656158049601), fillColor: perc2color(71.41656158049601), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle53.bindPopup('1393.4426229508197')
+            var circle54= L.circle([59.399867, 24.6849466], { color: perc2color(70.74165977391785), fillColor: perc2color(70.74165977391785), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle54.bindPopup('1426.3440860215053')
+            var circle55= L.circle([59.4077151, 24.6510009], { color: perc2color(60.256410256410255), fillColor: perc2color(60.256410256410255), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle55.bindPopup('1937.5')
+            var circle56= L.circle([59.4081488, 24.7011362000001], { color: perc2color(60.630341880341874), fillColor: perc2color(60.630341880341874), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle56.bindPopup('1919.2708333333335')
+            var circle57= L.circle([59.4071722, 24.6803575], { color: perc2color(70.40773434216058), fillColor: perc2color(70.40773434216058), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle57.bindPopup('1442.622950819672')
+            var circle58= L.circle([59.4034093066854, 24.6626801651037], { color: perc2color(72.59115005950449), fillColor: perc2color(72.59115005950449), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle58.bindPopup('1336.181434599156')
+            var circle59= L.circle([59.3991412, 24.6966907], { color: perc2color(67.65285996055226), fillColor: perc2color(67.65285996055226), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle59.bindPopup('1576.923076923077')
+            var circle60= L.circle([59.4030948, 24.6842012], { color: perc2color(71.13994766030726), fillColor: perc2color(71.13994766030726), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle60.bindPopup('1406.9275515600211')
+            var circle61= L.circle([59.4084345, 24.6914879], { color: perc2color(60.5760449596066), fillColor: perc2color(60.5760449596066), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle61.bindPopup('1921.9178082191781')
+            var circle62= L.circle([59.3977668, 24.6918286], { color: perc2color(63.68221941992434), fillColor: perc2color(63.68221941992434), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle62.bindPopup('1770.4918032786886')
+            var circle63= L.circle([59.4065711, 24.6715594], { color: perc2color(71.80327868852459), fillColor: perc2color(71.80327868852459), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle63.bindPopup('1374.590163934426')
+            var circle64= L.circle([59.4082545, 24.6980917999999], { color: perc2color(72.42538881883144), fillColor: perc2color(72.42538881883144), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle64.bindPopup('1344.2622950819673')
+            var circle65= L.circle([59.4030394, 24.6927929], { color: perc2color(69.06796906796907), fillColor: perc2color(69.06796906796907), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle65.bindPopup('1507.936507936508')
+            var circle66= L.circle([59.397138, 24.6953828000001], { color: perc2color(67.23329129886507), fillColor: perc2color(67.23329129886507), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle66.bindPopup('1597.377049180328')
+            var circle67= L.circle([59.4028147, 24.6809205], { color: perc2color(71.31995354835033), fillColor: perc2color(71.31995354835033), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle67.bindPopup('1398.1522645179216')
+            var circle68= L.circle([59.400235, 24.6901461], { color: perc2color(71.51744430432956), fillColor: perc2color(71.51744430432956), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle68.bindPopup('1388.5245901639344')
+            var circle69= L.circle([59.4023149, 24.6958056], { color: perc2color(74.77931904161412), fillColor: perc2color(74.77931904161412), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle69.bindPopup('1229.5081967213114')
+            var circle70= L.circle([59.407207, 24.6694606], { color: perc2color(70.94017094017093), fillColor: perc2color(70.94017094017093), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle70.bindPopup('1416.6666666666667')
+            var circle71= L.circle([59.3970855, 24.6795568], { color: perc2color(69.8420976387078), fillColor: perc2color(69.8420976387078), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle71.bindPopup('1470.1977401129943')
+            var circle72= L.circle([59.4015681, 24.6911782], { color: perc2color(64.69104665825978), fillColor: perc2color(64.69104665825978), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle72.bindPopup('1721.311475409836')
+            var circle73= L.circle([59.4098013, 24.6890363], { color: perc2color(70.07145859604876), fillColor: perc2color(70.07145859604876), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle73.bindPopup('1459.016393442623')
+            var circle74= L.circle([59.4095871, 24.6922204], { color: perc2color(71.62393162393163), fillColor: perc2color(71.62393162393163), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle74.bindPopup('1383.3333333333333')
+            var circle75= L.circle([59.4102604, 24.6853297], { color: perc2color(70.68376068376068), fillColor: perc2color(70.68376068376068), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle75.bindPopup('1429.1666666666667')
+            var circle76= L.circle([59.4040688, 24.7015137999999], { color: perc2color(69.55128205128206), fillColor: perc2color(69.55128205128206), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle76.bindPopup('1484.375')
+            var circle77= L.circle([59.4090074, 24.6776808], { color: perc2color(70.91214796132829), fillColor: perc2color(70.91214796132829), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle77.bindPopup('1418.032786885246')
+            var circle78= L.circle([59.4062499, 24.7012336], { color: perc2color(56.87047994740303), fillColor: perc2color(56.87047994740303), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle78.bindPopup('2102.5641025641025')
+            var circle79= L.circle([59.407085, 24.6991855], { color: perc2color(61.6289592760181), fillColor: perc2color(61.6289592760181), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle79.bindPopup('1870.5882352941176')
+            var circle80= L.circle([59.3954107, 24.652941], { color: perc2color(60.86369770580297), fillColor: perc2color(60.86369770580297), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle80.bindPopup('1907.8947368421052')
+            var circle81= L.circle([59.4089892, 24.7018399999999], { color: perc2color(69.74358974358975), fillColor: perc2color(69.74358974358975), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle81.bindPopup('1475.0')
+            var circle82= L.circle([59.3988482, 24.6877087], { color: perc2color(70.91465748182165), fillColor: perc2color(70.91465748182165), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle82.bindPopup('1417.910447761194')
+            var circle83= L.circle([59.4023973, 24.6638583], { color: perc2color(66.4), fillColor: perc2color(66.4), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle83.bindPopup('1638.0')
+            var circle84= L.circle([59.3974537, 24.6674009], { color: perc2color(68.86446886446886), fillColor: perc2color(68.86446886446886), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle84.bindPopup('1517.857142857143')
+            var circle85= L.circle([59.4052796, 24.6800372], { color: perc2color(72.5985457328741), fillColor: perc2color(72.5985457328741), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle85.bindPopup('1335.8208955223881')
+            var circle86= L.circle([59.4057362, 24.6929796], { color: perc2color(69.80976013234078), fillColor: perc2color(69.80976013234078), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle86.bindPopup('1471.774193548387')
+            var circle87= L.circle([59.4009247, 24.6661662], { color: perc2color(71.62393162393163), fillColor: perc2color(71.62393162393163), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle87.bindPopup('1383.3333333333333')
+            var circle88= L.circle([59.396213, 24.689928], { color: perc2color(64.21167484997272), fillColor: perc2color(64.21167484997272), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle88.bindPopup('1744.6808510638298')
+            var circle89= L.circle([59.4072464, 24.6849546], { color: perc2color(71.6141235813367), fillColor: perc2color(71.6141235813367), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle89.bindPopup('1383.811475409836')
+            var circle90= L.circle([59.4016158, 24.6889063], { color: perc2color(70.1036552100382), fillColor: perc2color(70.1036552100382), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle90.bindPopup('1457.4468085106382')
+            var circle91= L.circle([59.4020222, 24.6692822], { color: perc2color(69.87663438256658), fillColor: perc2color(69.87663438256658), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle91.bindPopup('1468.514073849879')
+            var circle92= L.circle([59.4084822, 24.6957738], { color: perc2color(70.6508875739645), fillColor: perc2color(70.6508875739645), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle92.bindPopup('1430.7692307692307')
+            var circle93= L.circle([59.3981518, 24.6712338], { color: perc2color(67.39608217869088), fillColor: perc2color(67.39608217869088), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle93.bindPopup('1589.44099378882')
+            var circle94= L.circle([59.4075733, 24.6971017], { color: perc2color(56.92307692307692), fillColor: perc2color(56.92307692307692), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle94.bindPopup('2100.0')
+            var circle95= L.circle([59.406874, 24.6908277], { color: perc2color(68.02351160621579), fillColor: perc2color(68.02351160621579), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle95.bindPopup('1558.8538091969801')
+            var circle96= L.circle([59.4039309, 24.6741166], { color: perc2color(69.23076923076923), fillColor: perc2color(69.23076923076923), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle96.bindPopup('1500.0')
+            var circle97= L.circle([59.3991196, 24.6666287], { color: perc2color(68.56906534325888), fillColor: perc2color(68.56906534325888), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle97.bindPopup('1532.258064516129')
+            var circle98= L.circle([59.401744, 24.6813916], { color: perc2color(75.68238213399503), fillColor: perc2color(75.68238213399503), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle98.bindPopup('1185.483870967742')
+            var circle99= L.circle([59.3978909, 24.6786403], { color: perc2color(60.927960927960925), fillColor: perc2color(60.927960927960925), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle99.bindPopup('1904.7619047619048')
+            var circle100= L.circle([59.3997851, 24.6971439], { color: perc2color(70.77763766288356), fillColor: perc2color(70.77763766288356), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle100.bindPopup('1424.5901639344263')
+            var circle101= L.circle([59.4015686626533, 24.6854373344238], { color: perc2color(72.45901639344262), fillColor: perc2color(72.45901639344262), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle101.bindPopup('1342.622950819672')
+            var circle102= L.circle([59.4036084, 24.6617317], { color: perc2color(66.8303327877796), fillColor: perc2color(66.8303327877796), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle102.bindPopup('1617.0212765957447')
+            var circle103= L.circle([59.4007166915984, 24.6718680380371], { color: perc2color(69.7522816166884), fillColor: perc2color(69.7522816166884), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle103.bindPopup('1474.5762711864406')
+            var circle104= L.circle([59.4155594, 24.7185664], { color: perc2color(63.751317175974705), fillColor: perc2color(63.751317175974705), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle104.bindPopup('1767.123287671233')
+            var circle105= L.circle([59.412789, 24.686166], { color: perc2color(59.32551064754455), fillColor: perc2color(59.32551064754455), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle105.bindPopup('1982.8813559322034')
+            var circle106= L.circle([59.4274903, 24.7168081], { color: perc2color(70.50861706599412), fillColor: perc2color(70.50861706599412), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle106.bindPopup('1437.7049180327867')
+            var circle107= L.circle([59.424185, 24.6937143], { color: perc2color(68.26923076923077), fillColor: perc2color(68.26923076923077), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle107.bindPopup('1546.875')
+            var circle108= L.circle([59.4224279, 24.7255768], { color: perc2color(50.76923076923077), fillColor: perc2color(50.76923076923077), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle108.bindPopup('2400.0')
+            var circle109= L.circle([59.4241827, 24.7025505], { color: perc2color(68.14296814296814), fillColor: perc2color(68.14296814296814), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle109.bindPopup('1553.030303030303')
+            var circle110= L.circle([59.4210766646443, 24.7043556481324], { color: perc2color(70.86202686202687), fillColor: perc2color(70.86202686202687), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle110.bindPopup('1420.4761904761904')
+            var circle111= L.circle([59.4133834, 24.6974737], { color: perc2color(49.02874902874903), fillColor: perc2color(49.02874902874903), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle111.bindPopup('2484.848484848485')
+            var circle112= L.circle([59.4248974, 24.7014086], { color: perc2color(62.03574203574204), fillColor: perc2color(62.03574203574204), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle112.bindPopup('1850.7575757575758')
+            var circle113= L.circle([59.4256156, 24.7213845], { color: perc2color(63.146067415730336), fillColor: perc2color(63.146067415730336), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle113.bindPopup('1796.629213483146')
+            var circle114= L.circle([59.4197593, 24.7285899], { color: perc2color(56.60749506903353), fillColor: perc2color(56.60749506903353), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle114.bindPopup('2115.3846153846152')
+            var circle115= L.circle([59.422791, 24.6984555], { color: perc2color(54.28074750108648), fillColor: perc2color(54.28074750108648), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle115.bindPopup('2228.813559322034')
+            var circle116= L.circle([59.419348452258, 24.7054530587525], { color: perc2color(65.30204259017819), fillColor: perc2color(65.30204259017819), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle116.bindPopup('1691.5254237288136')
+            var circle117= L.circle([59.420797, 24.7077730999999], { color: perc2color(62.594268476621416), fillColor: perc2color(62.594268476621416), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle117.bindPopup('1823.5294117647059')
+            var circle118= L.circle([59.4246473, 24.7229327], { color: perc2color(56.90408357075024), fillColor: perc2color(56.90408357075024), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle118.bindPopup('2100.925925925926')
+            var circle119= L.circle([59.4181475, 24.6998097], { color: perc2color(49.321266968325794), fillColor: perc2color(49.321266968325794), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle119.bindPopup('2470.5882352941176')
+            var circle120= L.circle([59.4210053, 24.7292765], { color: perc2color(65.01831501831501), fillColor: perc2color(65.01831501831501), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle120.bindPopup('1705.357142857143')
+            var circle121= L.circle([59.4223668, 24.7016727], { color: perc2color(68.07636807636808), fillColor: perc2color(68.07636807636808), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle121.bindPopup('1556.2770562770563')
+            var circle122= L.circle([59.4155376, 24.7234669], { color: perc2color(68.86446886446886), fillColor: perc2color(68.86446886446886), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle122.bindPopup('1517.857142857143')
+            var circle123= L.circle([59.4202841, 24.7064594999999], { color: perc2color(69.23076923076923), fillColor: perc2color(69.23076923076923), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle123.bindPopup('1500.0')
+            var circle124= L.circle([59.4254276, 24.6947248], { color: perc2color(71.38130686517783), fillColor: perc2color(71.38130686517783), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle124.bindPopup('1395.1612903225807')
+            var circle125= L.circle([59.4167277, 24.7298108], { color: perc2color(60.5183347118831), fillColor: perc2color(60.5183347118831), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle125.bindPopup('1924.731182795699')
+            var circle126= L.circle([59.4167165, 24.7240233], { color: perc2color(62.86472148541114), fillColor: perc2color(62.86472148541114), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle126.bindPopup('1810.344827586207')
+            var circle127= L.circle([59.4129971, 24.6907213], { color: perc2color(68.88888888888889), fillColor: perc2color(68.88888888888889), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle127.bindPopup('1516.6666666666667')
+            var circle128= L.circle([59.4191397, 24.7134294], { color: perc2color(60.738902674386544), fillColor: perc2color(60.738902674386544), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle128.bindPopup('1913.978494623656')
+            var circle129= L.circle([59.4180301, 24.7125189999999], { color: perc2color(48.873742291463806), fillColor: perc2color(48.873742291463806), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle129.bindPopup('2492.4050632911394')
+            var circle130= L.circle([59.4213782, 24.6994305], { color: perc2color(73.36752136752136), fillColor: perc2color(73.36752136752136), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle130.bindPopup('1298.3333333333333')
+            var circle131= L.circle([59.4139463, 24.7009353], { color: perc2color(68.59960552268245), fillColor: perc2color(68.59960552268245), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle131.bindPopup('1530.7692307692307')
+            var circle132= L.circle([59.4123666, 24.7087177999999], { color: perc2color(56.248682824025295), fillColor: perc2color(56.248682824025295), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle132.bindPopup('2132.876712328767')
+            var circle133= L.circle([59.4251484, 24.7182402], { color: perc2color(63.1042735042735), fillColor: perc2color(63.1042735042735), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle133.bindPopup('1798.6666666666667')
+            var circle134= L.circle([59.4222974, 24.7176672000001], { color: perc2color(39.273927392739274), fillColor: perc2color(39.273927392739274), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle134.bindPopup('2960.3960396039606')
+            var circle135= L.circle([59.4248735, 24.7047721], { color: perc2color(65.28631163708087), fillColor: perc2color(65.28631163708087), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle135.bindPopup('1692.2923076923078')
+            var circle136= L.circle([59.4319878, 24.7345402], { color: perc2color(18.599918599918595), fillColor: perc2color(18.599918599918595), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle136.bindPopup('3968.253968253968')
+            var circle137= L.circle([59.4291156, 24.7425297], { color: perc2color(26.961926961926963), fillColor: perc2color(26.961926961926963), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle137.bindPopup('3560.6060606060605')
+            var circle138= L.circle([59.430535, 24.7451348], { color: perc2color(34.258091635140815), fillColor: perc2color(34.258091635140815), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle138.bindPopup('3204.9180327868853')
+            var circle139= L.circle([59.4315762, 24.7262317], { color: perc2color(43.94099051633298), fillColor: perc2color(43.94099051633298), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle139.bindPopup('2732.876712328767')
+            var circle140= L.circle([59.4276941, 24.7310684], { color: perc2color(55.70419918246005), fillColor: perc2color(55.70419918246005), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle140.bindPopup('2159.4202898550725')
+            var circle141= L.circle([59.430909, 24.7433766], { color: perc2color(30.86598935655539), fillColor: perc2color(30.86598935655539), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle141.bindPopup('3370.2830188679245')
+            var circle142= L.circle([59.4274012, 24.7363049], { color: perc2color(40.608228980322004), fillColor: perc2color(40.608228980322004), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle142.bindPopup('2895.3488372093025')
+            var circle143= L.circle([59.427939, 24.733999], { color: perc2color(53.916403231471726), fillColor: perc2color(53.916403231471726), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle143.bindPopup('2246.5753424657532')
+            var circle144= L.circle([59.4331391, 24.7282838], { color: perc2color(43.83953292403997), fillColor: perc2color(43.83953292403997), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle144.bindPopup('2737.8227699530516')
+            var circle145= L.circle([59.4301591, 24.7299692], { color: perc2color(48.419218322130945), fillColor: perc2color(48.419218322130945), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle145.bindPopup('2514.5631067961167')
+            var circle146= L.circle([59.429464, 24.727179], { color: perc2color(59.40389198816165), fillColor: perc2color(59.40389198816165), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle146.bindPopup('1979.0602655771195')
+            var circle147= L.circle([59.4291377, 24.7338286], { color: perc2color(68.15114709851552), fillColor: perc2color(68.15114709851552), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle147.bindPopup('1552.6315789473683')
+            var circle148= L.circle([59.4306947, 24.733034], { color: perc2color(61.66796166796167), fillColor: perc2color(61.66796166796167), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle148.bindPopup('1868.6868686868686')
+            var circle149= L.circle([59.434567, 24.7462596], { color: perc2color(39.1941391941392), fillColor: perc2color(39.1941391941392), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle149.bindPopup('2964.285714285714')
+            var circle150= L.circle([59.4276937, 24.7449131999999], { color: perc2color(54.87179487179487), fillColor: perc2color(54.87179487179487), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle150.bindPopup('2200.0')
+            var circle151= L.circle([59.4346509, 24.7271777], { color: perc2color(50.537634408602145), fillColor: perc2color(50.537634408602145), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle151.bindPopup('2411.2903225806454')
+            var circle152= L.circle([59.4313346, 24.7356275], { color: perc2color(55.42406311637082), fillColor: perc2color(55.42406311637082), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle152.bindPopup('2173.076923076923')
+            var circle153= L.circle([59.4311707, 24.7464635], { color: perc2color(38.30730672835936), fillColor: perc2color(38.30730672835936), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle153.bindPopup('3007.5187969924814')
+            var circle154= L.circle([59.4315464, 24.7316233], { color: perc2color(54.134443065894686), fillColor: perc2color(54.134443065894686), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle154.bindPopup('2235.9459005376343')
+            var circle155= L.circle([59.427448, 24.733558], { color: perc2color(60.22514071294559), fillColor: perc2color(60.22514071294559), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle155.bindPopup('1939.0243902439024')
+            var circle156= L.circle([59.4286091, 24.7286882], { color: perc2color(55.05173189383716), fillColor: perc2color(55.05173189383716), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle156.bindPopup('2191.2280701754385')
+            var circle157= L.circle([59.4313581, 24.7281445], { color: perc2color(55.1943551943552), fillColor: perc2color(55.1943551943552), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle157.bindPopup('2184.275184275184')
+            var circle158= L.circle([59.4318372, 24.7407224], { color: perc2color(47.2934472934473), fillColor: perc2color(47.2934472934473), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle158.bindPopup('2569.4444444444443')
+            var circle159= L.circle([59.428514302122, 24.7437438777899], { color: perc2color(56.04395604395605), fillColor: perc2color(56.04395604395605), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle159.bindPopup('2142.8571428571427')
+            var circle160= L.circle([59.4308212, 24.7425317], { color: perc2color(36.77013045434098), fillColor: perc2color(36.77013045434098), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle160.bindPopup('3082.4561403508774')
+            var circle161= L.circle([59.433461219899, 24.725496059725], { color: perc2color(63.07692307692307), fillColor: perc2color(63.07692307692307), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle161.bindPopup('1800.0')
+            var circle162= L.circle([59.4333061, 24.7320517000001], { color: perc2color(45.044010715652504), fillColor: perc2color(45.044010715652504), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle162.bindPopup('2679.10447761194')
+            var circle163= L.circle([59.439615, 24.7157062], { color: perc2color(63.141025641025635), fillColor: perc2color(63.141025641025635), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle163.bindPopup('1796.875')
+            var circle164= L.circle([59.4361868, 24.7285697], { color: perc2color(45.493693134822166), fillColor: perc2color(45.493693134822166), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle164.bindPopup('2657.1824596774195')
+            var circle165= L.circle([59.437862766732, 24.711713392334], { color: perc2color(61.30043541364296), fillColor: perc2color(61.30043541364296), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle165.bindPopup('1886.6037735849056')
+            var circle166= L.circle([59.4377754, 24.7252552], { color: perc2color(49.05982905982905), fillColor: perc2color(49.05982905982905), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle166.bindPopup('2483.3333333333335')
+            var circle167= L.circle([59.4386635, 24.710611], { color: perc2color(21.10453648915187), fillColor: perc2color(21.10453648915187), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle167.bindPopup('3846.153846153846')
+            var circle168= L.circle([59.4372394306466, 24.7280186518676], { color: perc2color(53.6996336996337), fillColor: perc2color(53.6996336996337), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle168.bindPopup('2257.1428571428573')
+            var circle169= L.circle([59.4418277, 24.7330765], { color: perc2color(33.40617715617715), fillColor: perc2color(33.40617715617715), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle169.bindPopup('3246.448863636364')
+            var circle170= L.circle([59.435675, 24.7219673], { color: perc2color(59.86622073578595), fillColor: perc2color(59.86622073578595), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle170.bindPopup('1956.5217391304348')
+            var circle171= L.circle([59.438654, 24.7073993], { color: perc2color(61.1486245435145), fillColor: perc2color(61.1486245435145), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle171.bindPopup('1894.004553503668')
+            var circle172= L.circle([59.4362241, 24.7169039], { color: perc2color(58.235688121402404), fillColor: perc2color(58.235688121402404), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle172.bindPopup('2036.0102040816325')
+            var circle173= L.circle([59.4346509, 24.7271777], { color: perc2color(50.537634408602145), fillColor: perc2color(50.537634408602145), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle173.bindPopup('2411.2903225806454')
+            var circle174= L.circle([59.4352536, 24.7259158], { color: perc2color(40.32634032634033), fillColor: perc2color(40.32634032634033), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle174.bindPopup('2909.090909090909')
+            var circle175= L.circle([59.437933, 24.7228083], { color: perc2color(59.00366300366301), fillColor: perc2color(59.00366300366301), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle175.bindPopup('1998.5714285714287')
+            var circle176= L.circle([59.4396134, 24.717643], { color: perc2color(67.86324786324786), fillColor: perc2color(67.86324786324786), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle176.bindPopup('1566.6666666666667')
+            var circle177= L.circle([59.434859, 24.7302897], { color: perc2color(37.05655075518089), fillColor: perc2color(37.05655075518089), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle177.bindPopup('3068.4931506849316')
+            var circle178= L.circle([59.437012, 24.7143479], { color: perc2color(55.56767283349562), fillColor: perc2color(55.56767283349562), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle178.bindPopup('2166.0759493670885')
+            var circle179= L.circle([59.4421115, 24.7392678], { color: perc2color(40.63528511289706), fillColor: perc2color(40.63528511289706), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle179.bindPopup('2894.0298507462685')
+            var circle180= L.circle([59.4454691, 24.7345121], { color: perc2color(47.240047781759586), fillColor: perc2color(47.240047781759586), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle180.bindPopup('2572.04767063922')
+            var circle181= L.circle([59.4455697, 24.7459565], { color: perc2color(43.871513102282336), fillColor: perc2color(43.871513102282336), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle181.bindPopup('2736.263736263736')
+            var circle182= L.circle([59.4477953, 24.7443654], { color: perc2color(24.102564102564102), fillColor: perc2color(24.102564102564102), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle182.bindPopup('3700.0')
+            var circle183= L.circle([59.4452569, 24.740818], { color: perc2color(51.37057300215195), fillColor: perc2color(51.37057300215195), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle183.bindPopup('2370.6845661450925')
+            var circle184= L.circle([59.4480801, 24.7351868000001], { color: perc2color(51.042735042735046), fillColor: perc2color(51.042735042735046), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle184.bindPopup('2386.6666666666665')
+            var circle185= L.circle([59.4468124, 24.7339255], { color: perc2color(55.62130177514793), fillColor: perc2color(55.62130177514793), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle185.bindPopup('2163.4615384615386')
+            var circle186= L.circle([59.4466849, 24.7293217], { color: perc2color(43.8507326007326), fillColor: perc2color(43.8507326007326), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle186.bindPopup('2737.276785714286')
+            var circle187= L.circle([59.4423132, 24.7380149], { color: perc2color(34.871794871794876), fillColor: perc2color(34.871794871794876), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle187.bindPopup('3175.0')
+            var circle188= L.circle([59.446911, 24.7434696], { color: perc2color(31.41025641025641), fillColor: perc2color(31.41025641025641), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle188.bindPopup('3343.75')
+            var circle189= L.circle([59.4456763, 24.7447131], { color: perc2color(53.91657099119785), fillColor: perc2color(53.91657099119785), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle189.bindPopup('2246.5671641791046')
+            var circle190= L.circle([59.4435837, 24.7382261], { color: perc2color(56.62042875157629), fillColor: perc2color(56.62042875157629), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle190.bindPopup('2114.754098360656')
+            var circle191= L.circle([59.4477988, 24.7389882], { color: perc2color(42.09672184355728), fillColor: perc2color(42.09672184355728), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle191.bindPopup('2822.784810126582')
+            var circle192= L.circle([59.4418277, 24.7330765], { color: perc2color(33.40617715617715), fillColor: perc2color(33.40617715617715), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle192.bindPopup('3246.448863636364')
+            var circle193= L.circle([59.4426992, 24.7311387], { color: perc2color(68.21957385337667), fillColor: perc2color(68.21957385337667), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle193.bindPopup('1549.2957746478874')
+            var circle194= L.circle([59.4451632, 24.738438], { color: perc2color(40.48210065325415), fillColor: perc2color(40.48210065325415), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle194.bindPopup('2901.49759315386')
+            var circle195= L.circle([59.447012, 24.740994], { color: perc2color(47.45059084042135), fillColor: perc2color(47.45059084042135), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle195.bindPopup('2561.783696529459')
+            var circle196= L.circle([59.4462999, 24.7309881], { color: perc2color(54.487912087912086), fillColor: perc2color(54.487912087912086), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle196.bindPopup('2218.714285714286')
+            var circle197= L.circle([59.447941694578, 24.727648014819], { color: perc2color(54.09793018226753), fillColor: perc2color(54.09793018226753), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle197.bindPopup('2237.725903614458')
+            var circle198= L.circle([59.4485868, 24.7311596], { color: perc2color(48.53801169590643), fillColor: perc2color(48.53801169590643), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle198.bindPopup('2508.7719298245615')
+            var circle199= L.circle([59.4481163, 24.7334954], { color: perc2color(76.33136094674556), fillColor: perc2color(76.33136094674556), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle199.bindPopup('1153.8461538461538')
+            var circle200= L.circle([59.449083442169, 24.737304380951], { color: perc2color(64.91228070175438), fillColor: perc2color(64.91228070175438), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle200.bindPopup('1710.5263157894738')
+            var circle201= L.circle([59.4420013, 24.7544499], { color: perc2color(25.921351903910036), fillColor: perc2color(25.921351903910036), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle201.bindPopup('3611.3340946843855')
+            var circle202= L.circle([59.4377116, 24.7449299], { color: perc2color(27.398444252376848), fillColor: perc2color(27.398444252376848), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle202.bindPopup('3539.325842696629')
+            var circle203= L.circle([59.4370037916385, 24.757793561377], { color: perc2color(55.145299145299134), fillColor: perc2color(55.145299145299134), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle203.bindPopup('2186.666666666667')
+            var circle204= L.circle([59.4373758, 24.7425896], { color: perc2color(36.5079365079365), fillColor: perc2color(36.5079365079365), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle204.bindPopup('3095.2380952380954')
+            var circle205= L.circle([59.4391308, 24.7561968], { color: perc2color(23.70231394621638), fillColor: perc2color(23.70231394621638), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle205.bindPopup('3719.512195121951')
+            var circle206= L.circle([59.4394831, 24.7443244], { color: perc2color(29.870699101468333), fillColor: perc2color(29.870699101468333), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle206.bindPopup('3418.803418803419')
+            var circle207= L.circle([59.436324, 24.7457197], { color: perc2color(40.17094017094017), fillColor: perc2color(40.17094017094017), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle207.bindPopup('2916.6666666666665')
+            var circle208= L.circle([59.4421115, 24.7392678], { color: perc2color(34.871794871794876), fillColor: perc2color(34.871794871794876), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle208.bindPopup('3175.0')
+            var circle209= L.circle([59.4404138, 24.7478712], { color: perc2color(21.987909109860325), fillColor: perc2color(21.987909109860325), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle209.bindPopup('3803.089430894309')
+            var circle210= L.circle([59.4414755, 24.7490206], { color: perc2color(36.81544792655903), fillColor: perc2color(36.81544792655903), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle210.bindPopup('3080.246913580247')
+            var circle211= L.circle([59.438712975522, 24.743973234662], { color: perc2color(47.802197802197796), fillColor: perc2color(47.802197802197796), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle211.bindPopup('2544.6428571428573')
+            var circle212= L.circle([59.4369129, 24.7479872], { color: perc2color(45.86666666666667), fillColor: perc2color(45.86666666666667), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle212.bindPopup('2639.0')
+            var circle213= L.circle([59.4390078, 24.7552757], { color: perc2color(32.04238683690738), fillColor: perc2color(32.04238683690738), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle213.bindPopup('3312.933641700765')
+            var circle214= L.circle([59.4392382, 24.7495198], { color: perc2color(40.26495726495726), fillColor: perc2color(40.26495726495726), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle214.bindPopup('2912.0833333333335')
+            var circle215= L.circle([59.436435, 24.752197], { color: perc2color(28.288919413919416), fillColor: perc2color(28.288919413919416), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle215.bindPopup('3495.9151785714284')
+            var circle216= L.circle([59.4371098, 24.7512349], { color: perc2color(44.68452895419187), fillColor: perc2color(44.68452895419187), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle216.bindPopup('2696.629213483146')
+            var circle217= L.circle([59.4375529, 24.7475257], { color: perc2color(38.66666666666667), fillColor: perc2color(38.66666666666667), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle217.bindPopup('2990.0')
+            var circle218= L.circle([59.4369608, 24.7535746], { color: perc2color(53.02327302327303), fillColor: perc2color(53.02327302327303), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle218.bindPopup('2290.11544011544')
+            var circle219= L.circle([59.4383895, 24.7459076], { color: perc2color(22.779420241349186), fillColor: perc2color(22.779420241349186), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle219.bindPopup('3764.5032632342272')
+            var circle220= L.circle([59.4377047, 24.7430737], { color: perc2color(58.485958485958484), fillColor: perc2color(58.485958485958484), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle220.bindPopup('2023.8095238095239')
+            var circle221= L.circle([59.4362376, 24.7602302], { color: perc2color(44.36674436674437), fillColor: perc2color(44.36674436674437), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle221.bindPopup('2712.121212121212')
+            var circle222= L.circle([59.4407318, 24.7468124], { color: perc2color(-0.0), fillColor: perc2color(-0.0), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle222.bindPopup('4875.0')
+            var circle223= L.circle([59.4383307, 24.7591127000001], { color: perc2color(35.008885503935005), fillColor: perc2color(35.008885503935005), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle223.bindPopup('3168.3168316831684')
+            var circle224= L.circle([59.436169, 24.7384223], { color: perc2color(69.45477479828625), fillColor: perc2color(69.45477479828625), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle224.bindPopup('1489.0797285835454')
+            var circle225= L.circle([59.4279757, 24.753571], { color: perc2color(58.38063958513397), fillColor: perc2color(58.38063958513397), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle225.bindPopup('2028.943820224719')
+            var circle226= L.circle([59.4291253, 24.7565417000001], { color: perc2color(58.97435897435898), fillColor: perc2color(58.97435897435898), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle226.bindPopup('2000.0')
+            var circle227= L.circle([59.4291156, 24.7425297], { color: perc2color(26.961926961926963), fillColor: perc2color(26.961926961926963), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle227.bindPopup('3560.6060606060605')
+            var circle228= L.circle([59.434720357586, 24.753770429688], { color: perc2color(50.17751479289941), fillColor: perc2color(50.17751479289941), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle228.bindPopup('2428.846153846154')
+            var circle229= L.circle([59.430535, 24.7451348], { color: perc2color(34.258091635140815), fillColor: perc2color(34.258091635140815), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle229.bindPopup('3204.9180327868853')
+            var circle230= L.circle([59.432752, 24.760799], { color: perc2color(20.926385442514473), fillColor: perc2color(20.926385442514473), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle230.bindPopup('3854.8387096774195')
+            var circle231= L.circle([59.430909, 24.7433766], { color: perc2color(30.86598935655539), fillColor: perc2color(30.86598935655539), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle231.bindPopup('3370.2830188679245')
+            var circle232= L.circle([59.430138317769, 24.752191174831], { color: perc2color(50.13806706114398), fillColor: perc2color(50.13806706114398), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle232.bindPopup('2430.769230769231')
+            var circle233= L.circle([59.429643, 24.7642697], { color: perc2color(55.31886916502302), fillColor: perc2color(55.31886916502302), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle233.bindPopup('2178.205128205128')
+            var circle234= L.circle([59.431687, 24.7533202], { color: perc2color(45.902463549522366), fillColor: perc2color(45.902463549522366), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle234.bindPopup('2637.2549019607845')
+            var circle235= L.circle([59.4320958108934, 24.7650423645973], { color: perc2color(57.42035742035741), fillColor: perc2color(57.42035742035741), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle235.bindPopup('2075.757575757576')
+            var circle236= L.circle([59.4280404, 24.7469298], { color: perc2color(78.12239316239317), fillColor: perc2color(78.12239316239317), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle236.bindPopup('1066.5333333333333')
+            var circle237= L.circle([59.4287768, 24.7640893], { color: perc2color(67.63664196500017), fillColor: perc2color(67.63664196500017), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle237.bindPopup('1577.7137042062416')
+            var circle238= L.circle([59.431136042217, 24.757428882569], { color: perc2color(56.519036519036526), fillColor: perc2color(56.519036519036526), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle238.bindPopup('2119.6969696969695')
+            var circle239= L.circle([59.4292914, 24.7624158], { color: perc2color(55.0847844965492), fillColor: perc2color(55.0847844965492), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle239.bindPopup('2189.6167557932267')
+            var circle240= L.circle([59.4348892, 24.7472201], { color: perc2color(37.58387549432325), fillColor: perc2color(37.58387549432325), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle240.bindPopup('3042.7860696517414')
+            var circle241= L.circle([59.4348459, 24.7656336], { color: perc2color(58.91490152359717), fillColor: perc2color(58.91490152359717), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle241.bindPopup('2002.8985507246377')
+            var circle242= L.circle([59.4287378, 24.7671517], { color: perc2color(66.27816627816628), fillColor: perc2color(66.27816627816628), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle242.bindPopup('1643.939393939394')
+            var circle243= L.circle([59.430455, 24.7492896], { color: perc2color(47.78554778554779), fillColor: perc2color(47.78554778554779), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle243.bindPopup('2545.4545454545455')
+            var circle244= L.circle([59.431749, 24.7494839], { color: perc2color(9.639519616929263), fillColor: perc2color(9.639519616929263), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle244.bindPopup('4405.073418674699')
+            var circle245= L.circle([59.4336135, 24.7648553], { color: perc2color(41.9847177911694), fillColor: perc2color(41.9847177911694), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle245.bindPopup('2828.2450076804917')
+            var circle246= L.circle([59.4288324, 24.7513474], { color: perc2color(50.1039501039501), fillColor: perc2color(50.1039501039501), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle246.bindPopup('2432.4324324324325')
+            var circle247= L.circle([59.4308088, 24.7503031], { color: perc2color(38.32658569500674), fillColor: perc2color(38.32658569500674), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle247.bindPopup('3006.5789473684213')
+            var circle248= L.circle([59.4323288599, 24.7630762507], { color: perc2color(59.853479853479854), fillColor: perc2color(59.853479853479854), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle248.bindPopup('1957.142857142857')
+            var circle249= L.circle([59.4294629, 24.7556655], { color: perc2color(57.08939708939709), fillColor: perc2color(57.08939708939709), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle249.bindPopup('2091.891891891892')
+            var circle250= L.circle([59.4315226, 24.7472203], { color: perc2color(38.82273072556474), fillColor: perc2color(38.82273072556474), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle250.bindPopup('2982.391877128719')
+            var circle251= L.circle([59.4289501, 24.7476379], { color: perc2color(53.97435897435898), fillColor: perc2color(53.97435897435898), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle251.bindPopup('2243.75')
+            var circle252= L.circle([59.428514302122, 24.7437438777899], { color: perc2color(56.04395604395605), fillColor: perc2color(56.04395604395605), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle252.bindPopup('2142.8571428571427')
+            var circle253= L.circle([59.4308212, 24.7425317], { color: perc2color(36.77013045434098), fillColor: perc2color(36.77013045434098), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle253.bindPopup('3082.4561403508774')
+            var circle254= L.circle([59.433108, 24.7542296], { color: perc2color(46.48829431438127), fillColor: perc2color(46.48829431438127), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle254.bindPopup('2608.695652173913')
+            var circle255= L.circle([59.4319009, 24.7519385000001], { color: perc2color(27.96092796092796), fillColor: perc2color(27.96092796092796), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle255.bindPopup('3511.904761904762')
+            var circle256= L.circle([59.4380507, 24.7673827], { color: perc2color(58.455047062641995), fillColor: perc2color(58.455047062641995), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle256.bindPopup('2025.3164556962026')
+            var circle257= L.circle([59.4401248, 24.7792723], { color: perc2color(44.11571334648258), fillColor: perc2color(44.11571334648258), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle257.bindPopup('2724.3589743589746')
+            var circle258= L.circle([59.4385184, 24.7793435], { color: perc2color(34.769230769230774), fillColor: perc2color(34.769230769230774), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle258.bindPopup('3180.0')
+            var circle259= L.circle([59.435123742652, 24.770628558814], { color: perc2color(57.47863247863248), fillColor: perc2color(57.47863247863248), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle259.bindPopup('2072.9166666666665')
+            var circle260= L.circle([59.4346906, 24.779128], { color: perc2color(46.94960212201591), fillColor: perc2color(46.94960212201591), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle260.bindPopup('2586.206896551724')
+            var circle261= L.circle([59.439697, 24.768336], { color: perc2color(52.39427860696518), fillColor: perc2color(52.39427860696518), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle261.bindPopup('2320.7789179104475')
+            var circle262= L.circle([59.440613, 24.7828918], { color: perc2color(56.51282051282051), fillColor: perc2color(56.51282051282051), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle262.bindPopup('2120.0')
+            var circle263= L.circle([59.4355517, 24.765359], { color: perc2color(60.78431372549019), fillColor: perc2color(60.78431372549019), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle263.bindPopup('1911.764705882353')
+            var circle264= L.circle([59.436079, 24.7762867], { color: perc2color(47.609147609147605), fillColor: perc2color(47.609147609147605), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle264.bindPopup('2554.054054054054')
+            var circle265= L.circle([59.4405516, 24.7798524], { color: perc2color(45.39154539154539), fillColor: perc2color(45.39154539154539), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle265.bindPopup('2662.162162162162')
+            var circle266= L.circle([59.438344, 24.7660125], { color: perc2color(75.68850902184235), fillColor: perc2color(75.68850902184235), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle266.bindPopup('1185.1851851851852')
+            var circle267= L.circle([59.434007, 24.7724315], { color: perc2color(47.0971826527382), fillColor: perc2color(47.0971826527382), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle267.bindPopup('2579.0123456790125')
+            var circle268= L.circle([59.4349052, 24.7692766], { color: perc2color(52.03619909502263), fillColor: perc2color(52.03619909502263), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle268.bindPopup('2338.235294117647')
+            var circle269= L.circle([59.4376283, 24.7733297], { color: perc2color(44.55760202239075), fillColor: perc2color(44.55760202239075), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle269.bindPopup('2702.8169014084506')
+            var circle270= L.circle([59.434495, 24.7763411999999], { color: perc2color(51.34779750164366), fillColor: perc2color(51.34779750164366), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle270.bindPopup('2371.7948717948716')
+            var circle271= L.circle([59.4379238, 24.77464], { color: perc2color(35.831689677843514), fillColor: perc2color(35.831689677843514), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle271.bindPopup('3128.2051282051284')
+            var circle272= L.circle([59.4389059, 24.7636448], { color: perc2color(41.8370658876988), fillColor: perc2color(41.8370658876988), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle272.bindPopup('2835.4430379746836')
+            var circle273= L.circle([59.440169889172, 24.786180787033], { color: perc2color(42.92644292644292), fillColor: perc2color(42.92644292644292), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle273.bindPopup('2782.3359073359075')
+            var circle274= L.circle([59.4348459, 24.7656336], { color: perc2color(58.91490152359717), fillColor: perc2color(58.91490152359717), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle274.bindPopup('2002.8985507246377')
+            var circle275= L.circle([59.4359442, 24.7681081], { color: perc2color(42.8054298642534), fillColor: perc2color(42.8054298642534), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle275.bindPopup('2788.235294117647')
+            var circle276= L.circle([59.440486, 24.77187], { color: perc2color(53.333333333333336), fillColor: perc2color(53.333333333333336), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle276.bindPopup('2275.0')
+            var circle277= L.circle([59.4408, 24.7644], { color: perc2color(47.615108905431484), fillColor: perc2color(47.615108905431484), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle277.bindPopup('2553.7634408602153')
+            var circle278= L.circle([59.4349882, 24.7782577], { color: perc2color(44.48900813517858), fillColor: perc2color(44.48900813517858), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle278.bindPopup('2706.160853410044')
+            var circle279= L.circle([59.4365864, 24.7690619], { color: perc2color(60.78431372549019), fillColor: perc2color(60.78431372549019), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle279.bindPopup('1911.764705882353')
+            var circle280= L.circle([59.4352898, 24.7816119], { color: perc2color(41.92153228297807), fillColor: perc2color(41.92153228297807), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle280.bindPopup('2831.325301204819')
+            var circle281= L.circle([59.4346282, 24.7746555], { color: perc2color(41.91452991452992), fillColor: perc2color(41.91452991452992), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle281.bindPopup('2831.6666666666665')
+            var circle282= L.circle([59.4344451, 24.7783103], { color: perc2color(54.21621113928806), fillColor: perc2color(54.21621113928806), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle282.bindPopup('2231.959706959707')
+            var circle283= L.circle([59.4370906, 24.7641171], { color: perc2color(61.25356125356125), fillColor: perc2color(61.25356125356125), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle283.bindPopup('1888.888888888889')
+            var circle284= L.circle([59.4371724, 24.7780755], { color: perc2color(53.05456399796022), fillColor: perc2color(53.05456399796022), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle284.bindPopup('2288.590005099439')
+            var circle285= L.circle([59.4378629382412, 24.7630291884066], { color: perc2color(51.4041514041514), fillColor: perc2color(51.4041514041514), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle285.bindPopup('2369.0476190476193')
+            var circle286= L.circle([59.4355141, 24.7633767], { color: perc2color(54.24063116370808), fillColor: perc2color(54.24063116370808), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle286.bindPopup('2230.769230769231')
+            var circle287= L.circle([59.4382753, 24.7686185], { color: perc2color(65.07276507276507), fillColor: perc2color(65.07276507276507), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle287.bindPopup('1702.7027027027027')
+            var circle288= L.circle([59.4407873, 24.7734882], { color: perc2color(56.41025641025641), fillColor: perc2color(56.41025641025641), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle288.bindPopup('2125.0')
+            var circle289= L.circle([59.439353628032, 24.769948111008], { color: perc2color(64.1982905982906), fillColor: perc2color(64.1982905982906), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle289.bindPopup('1745.3333333333333')
+            var circle290= L.circle([59.4366577, 24.7871063], { color: perc2color(41.333333333333336), fillColor: perc2color(41.333333333333336), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle290.bindPopup('2860.0')
+            var circle291= L.circle([59.4362311, 24.7726617], { color: perc2color(60.552268244575934), fillColor: perc2color(60.552268244575934), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle291.bindPopup('1923.076923076923')
+            var circle292= L.circle([59.4466442, 24.8039286], { color: perc2color(30.97713097713097), fillColor: perc2color(30.97713097713097), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle292.bindPopup('3364.864864864865')
+            var circle293= L.circle([59.4514596, 24.8347364], { color: perc2color(62.56410256410256), fillColor: perc2color(62.56410256410256), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle293.bindPopup('1825.0')
+            var circle294= L.circle([59.447299187564, 24.807744070639], { color: perc2color(42.16524216524217), fillColor: perc2color(42.16524216524217), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle294.bindPopup('2819.4444444444443')
+            var circle295= L.circle([59.4491818, 24.8066319], { color: perc2color(46.09543302818317), fillColor: perc2color(46.09543302818317), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle295.bindPopup('2627.8476398760704')
+            var circle296= L.circle([59.4467505, 24.8056309], { color: perc2color(45.99156118143459), fillColor: perc2color(45.99156118143459), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle296.bindPopup('2632.9113924050635')
+            var circle297= L.circle([59.4472222, 24.8251096], { color: perc2color(49.77343331773712), fillColor: perc2color(49.77343331773712), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle297.bindPopup('2448.5451257603154')
+            var circle298= L.circle([59.4427886, 24.8129081], { color: perc2color(60.63756063756064), fillColor: perc2color(60.63756063756064), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle298.bindPopup('1918.918918918919')
+            var circle299= L.circle([59.4513082, 24.8368366], { color: perc2color(60.60606060606061), fillColor: perc2color(60.60606060606061), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle299.bindPopup('1920.4545454545455')
+            var circle300= L.circle([59.4431334, 24.8025158], { color: perc2color(56.04395604395605), fillColor: perc2color(56.04395604395605), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle300.bindPopup('2142.8571428571427')
+            var circle301= L.circle([59.445419, 24.815194], { color: perc2color(46.74658674658675), fillColor: perc2color(46.74658674658675), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle301.bindPopup('2596.103896103896')
+            var circle302= L.circle([59.4550276, 24.8218604], { color: perc2color(60.41604207758054), fillColor: perc2color(60.41604207758054), fillOpacity: 0.5,radius: 20}).addTo(mymap);
+                circle302.bindPopup('1929.7179487179487')
+                        
+        </script>
+        </body>
+        </html>
