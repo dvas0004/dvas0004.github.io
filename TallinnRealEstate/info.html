@@ -1,0 +1,115 @@
+<html>
+
+    <head>
+        <title>TLN Real Estate</title>
+        <meta name="viewport" content="initial-scale=1.0">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+            integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+            crossorigin=""/>
+        
+        <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+            integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+            crossorigin=""></script>
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+        
+
+        <style>
+        #map {
+            height: 100%;
+            width: 98vw;
+            margin-right: 0.4vw;
+            margin-left: 0.6vw;
+        }
+
+        .brand-logo {
+            margin-left: 20px;
+        }
+
+        </style>
+    </head>
+
+    <body>
+        <div class="row">
+            <div class="col s12">
+                <nav>
+                    <div class="nav-wrapper blue-grey darken-3">
+                        <a href="#" class="brand-logo">Tallinn Real Estate Analysis</a>
+                        <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="./index.html">Sale Prices</a></li>
+                        <li><a href="./price_to_rent_ratio.html">Price-to-Rent Ratios</a></li>
+                        <li><a href="./info.html">What am I looking at?</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="col s12">
+                <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title"><strong>Data Sources</strong></span>
+                    <p>
+                        Data was gathered from <a href="https://kv.ee">KV.EE</a>, in August 2018. 
+                        <ul>
+                            <li>&#9900 <strong>Data is not periodically refreshed, so it may be out of date</strong>.</li>
+                            <li>&#9900 The map only shows data for <strong>3 roomed apartments</strong></li>
+                            <hr />
+                            <li>
+                                This is just a side / fun project, if you'd like to see more feature or help this evolve into a proper service
+                                please contact me via email <strong>daveassallo (at) gmail.com</strong>
+                            </li>
+                        </ul>
+                        
+                    </p>
+                </div>
+                <div class="card-action">
+                    <a href="https://blog.davidvassallo.me/2018/08/13/scraping-real-estate-prices-using-python-and-visualization-using-maps/">See more technical details >></a>
+                </div>
+                </div>
+            </div>
+            
+            <div class="col s12 m6">
+                <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title">Sale Prices</span>
+                    <p>
+                        Sale prices are calculated by dividing the total price of a property by it's area in m&sup2;. 
+                        Wherever too many apartments are physically located too close together, we take the median price of the clustered apartments. 
+                        The points you see on the map vary in color:
+                        <ul>
+                            <li>&#9900 from green (cheaper &euro;/&sup2;)</li>
+                            <li>&#9900 to red (more expensive &euro;/&sup2;)</li>
+                        </ul>
+                        
+                    </p>
+                </div>
+                <div class="card-action">
+                    <a href="./index.html">See Sales Prices Map >></a>
+                </div>
+                </div>
+            </div>
+            <div class="col s12 m6">
+                <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title">Price-to-Rent Ratios</span>
+                    <p>
+                        "The price-to-rent ratio is a measure of the relative affordability of renting and buying in a given housing market" <a href="https://smartasset.com/mortgage/price-to-rent-ratio-in-us-cities">[source]</a>
+                        The points you see on the map vary in color:
+                        <ul>
+                            <li>&#9900 from green (lower ratio, indicates a place is more favourable to homebuyers)</li>
+                            <li>&#9900 to red (higher ratio, indicates a place is more favourable to renters)</li>
+                        </ul> 
+                    </p>
+                </div>
+                <div class="card-action">
+                    <a href="./price_to_rent_ratio.html">See Price-To-Rent Ratio Map >></a>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    </body>
+</html>
