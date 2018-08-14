@@ -48,3 +48,633 @@
                     </div>
 
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+                <script>
+
+                        function perc2color(perc) {
+                            var r, g, b = 0;
+                            if(perc < 50) {
+                                r = 255;
+                                g = Math.round(5.1 * perc);
+                            }
+                            else {
+                                g = 255;
+                                r = Math.round(510 - 5.10 * perc);
+                            }
+                            var h = r * 0x10000 + g * 0x100 + b * 0x1;
+                            return '#' + ('000000' + h.toString(16)).slice(-6);
+                        }
+
+                        var mymap = L.map('map').setView([59.437291, 24.745194], 12);
+                        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZHZhczAwMDQiLCJhIjoiY2prczdrMDRmMTg4ejNxbG1ndXFqYjZ3biJ9.BFxa0UpSh3dHg2pmDZSDYA', {
+                            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                            maxZoom: 18,
+                            id: 'mapbox.dark',
+                            accessToken: 'pk.eyJ1IjoiZHZhczAwMDQiLCJhIjoiY2prczdrMDRmMTg4ejNxbG1ndXFqYjZ3biJ9.BFxa0UpSh3dHg2pmDZSDYA'
+                        }).addTo(mymap);
+
+            var circle0= L.circle([59.4362376, 24.7602302], { color: perc2color(50.07518990270298), fillColor: perc2color(50.07518990270298), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle0.bindPopup('<p><strong>Price to rent ratio: 20.02</strong><br /> Selling Price/m&sup2;: 2712.12<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle1= L.circle([59.4418317, 24.7385733], { color: perc2color(44.11648288200312), fillColor: perc2color(44.11648288200312), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle1.bindPopup('<p><strong>Price to rent ratio: 22.41</strong><br /> Selling Price/m&sup2;: 3086.42<br /> Median Nearby Rent/m&sup2;: 11.48</p>')
+                    var circle2= L.circle([59.436169, 24.7384223], { color: perc2color(73.03833594923513), fillColor: perc2color(73.03833594923513), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle2.bindPopup('<p><strong>Price to rent ratio: 10.81</strong><br /> Selling Price/m&sup2;: 1489.08<br /> Median Nearby Rent/m&sup2;: 11.48</p>')
+                    var circle3= L.circle([59.4392785, 24.7570073], { color: perc2color(32.69808273213553), fillColor: perc2color(32.69808273213553), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle3.bindPopup('<p><strong>Price to rent ratio: 26.99</strong><br /> Selling Price/m&sup2;: 3652.44<br /> Median Nearby Rent/m&sup2;: 11.28</p>')
+                    var circle4= L.circle([59.4371452, 24.745241], { color: perc2color(46.210300374021564), fillColor: perc2color(46.210300374021564), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle4.bindPopup('<p><strong>Price to rent ratio: 21.57</strong><br /> Selling Price/m&sup2;: 2922.08<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle5= L.circle([59.437178, 24.7470771000001], { color: perc2color(46.511522691927055), fillColor: perc2color(46.511522691927055), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle5.bindPopup('<p><strong>Price to rent ratio: 21.45</strong><br /> Selling Price/m&sup2;: 2905.71<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle6= L.circle([59.4387838, 24.7442391], { color: perc2color(36.49398747140741), fillColor: perc2color(36.49398747140741), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle6.bindPopup('<p><strong>Price to rent ratio: 25.46</strong><br /> Selling Price/m&sup2;: 3449.91<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle7= L.circle([59.4407318, 24.7468124], { color: perc2color(24.8917051612531), fillColor: perc2color(24.8917051612531), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle7.bindPopup('<p><strong>Price to rent ratio: 30.12</strong><br /> Selling Price/m&sup2;: 4076.09<br /> Median Nearby Rent/m&sup2;: 11.28</p>')
+                    var circle8= L.circle([59.440633539164, 24.747126458078], { color: perc2color(35.46627326730838), fillColor: perc2color(35.46627326730838), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle8.bindPopup('<p><strong>Price to rent ratio: 25.88</strong><br /> Selling Price/m&sup2;: 3505.74<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle9= L.circle([59.4370037916385, 24.757793561377], { color: perc2color(59.74777322211226), fillColor: perc2color(59.74777322211226), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle9.bindPopup('<p><strong>Price to rent ratio: 16.14</strong><br /> Selling Price/m&sup2;: 2186.67<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle10= L.circle([59.4358695, 24.7483347], { color: perc2color(50.42280417635995), fillColor: perc2color(50.42280417635995), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle10.bindPopup('<p><strong>Price to rent ratio: 19.88</strong><br /> Selling Price/m&sup2;: 2693.24<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle11= L.circle([59.4420013, 24.7544499], { color: perc2color(33.455505528215454), fillColor: perc2color(33.455505528215454), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle11.bindPopup('<p><strong>Price to rent ratio: 26.68</strong><br /> Selling Price/m&sup2;: 3611.33<br /> Median Nearby Rent/m&sup2;: 11.28</p>')
+                    var circle12= L.circle([59.4383307, 24.7591127000001], { color: perc2color(41.677527006199846), fillColor: perc2color(41.677527006199846), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle12.bindPopup('<p><strong>Price to rent ratio: 23.39</strong><br /> Selling Price/m&sup2;: 3168.32<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle13= L.circle([59.4369608, 24.7535746999999], { color: perc2color(57.8010313504852), fillColor: perc2color(57.8010313504852), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle13.bindPopup('<p><strong>Price to rent ratio: 16.92</strong><br /> Selling Price/m&sup2;: 2290.12<br /> Median Nearby Rent/m&sup2;: 11.28</p>')
+                    var circle14= L.circle([59.4371098, 24.7512349], { color: perc2color(50.31037752690543), fillColor: perc2color(50.31037752690543), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle14.bindPopup('<p><strong>Price to rent ratio: 19.92</strong><br /> Selling Price/m&sup2;: 2696.63<br /> Median Nearby Rent/m&sup2;: 11.28</p>')
+                    var circle15= L.circle([59.4414755, 24.7490206], { color: perc2color(33.91289776981846), fillColor: perc2color(33.91289776981846), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle15.bindPopup('<p><strong>Price to rent ratio: 26.50</strong><br /> Selling Price/m&sup2;: 3590.12<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle16= L.circle([59.436435, 24.752197], { color: perc2color(35.582280072980836), fillColor: perc2color(35.582280072980836), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle16.bindPopup('<p><strong>Price to rent ratio: 25.83</strong><br /> Selling Price/m&sup2;: 3495.92<br /> Median Nearby Rent/m&sup2;: 11.28</p>')
+                    var circle17= L.circle([59.4394802, 24.7448347], { color: perc2color(49.718805473082305), fillColor: perc2color(49.718805473082305), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle17.bindPopup('<p><strong>Price to rent ratio: 20.16</strong><br /> Selling Price/m&sup2;: 2731.48<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle18= L.circle([59.437694, 24.745478], { color: perc2color(30.70290896746836), fillColor: perc2color(30.70290896746836), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle18.bindPopup('<p><strong>Price to rent ratio: 27.79</strong><br /> Selling Price/m&sup2;: 3764.50<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle19= L.circle([59.4376541, 24.7446696], { color: perc2color(34.84798180134298), fillColor: perc2color(34.84798180134298), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle19.bindPopup('<p><strong>Price to rent ratio: 26.12</strong><br /> Selling Price/m&sup2;: 3539.33<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle20= L.circle([59.4373744, 24.7425692], { color: perc2color(43.02276261840803), fillColor: perc2color(43.02276261840803), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle20.bindPopup('<p><strong>Price to rent ratio: 22.85</strong><br /> Selling Price/m&sup2;: 3095.24<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle21= L.circle([59.4391308, 24.7561968], { color: perc2color(22.58895571994887), fillColor: perc2color(22.58895571994887), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle21.bindPopup('<p><strong>Price to rent ratio: 31.04</strong><br /> Selling Price/m&sup2;: 4201.06<br /> Median Nearby Rent/m&sup2;: 11.28</p>')
+                    var circle22= L.circle([59.4392382, 24.7495198], { color: perc2color(46.340297464693116), fillColor: perc2color(46.340297464693116), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle22.bindPopup('<p><strong>Price to rent ratio: 21.52</strong><br /> Selling Price/m&sup2;: 2912.08<br /> Median Nearby Rent/m&sup2;: 11.28</p>')
+                    var circle23= L.circle([59.4377047, 24.7430737], { color: perc2color(62.745652481266795), fillColor: perc2color(62.745652481266795), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle23.bindPopup('<p><strong>Price to rent ratio: 14.94</strong><br /> Selling Price/m&sup2;: 2023.81<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle24= L.circle([59.439931093876, 24.756016452393], { color: perc2color(61.71102683891414), fillColor: perc2color(61.71102683891414), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle24.bindPopup('<p><strong>Price to rent ratio: 15.35</strong><br /> Selling Price/m&sup2;: 2077.92<br /> Median Nearby Rent/m&sup2;: 11.28</p>')
+                    var circle25= L.circle([59.4494102, 24.6022362], { color: perc2color(47.85009362175735), fillColor: perc2color(47.85009362175735), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle25.bindPopup('<p><strong>Price to rent ratio: 20.91</strong><br /> Selling Price/m&sup2;: 3284.13<br /> Median Nearby Rent/m&sup2;: 13.09</p>')
+                    var circle26= L.circle([59.4413406, 24.6225744999999], { color: perc2color(44.67985129864189), fillColor: perc2color(44.67985129864189), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle26.bindPopup('<p><strong>Price to rent ratio: 22.18</strong><br /> Selling Price/m&sup2;: 2661.76<br /> Median Nearby Rent/m&sup2;: 10.00</p>')
+                    var circle27= L.circle([59.4476747, 24.6048839], { color: perc2color(46.80597865608163), fillColor: perc2color(46.80597865608163), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle27.bindPopup('<p><strong>Price to rent ratio: 21.33</strong><br /> Selling Price/m&sup2;: 3349.89<br /> Median Nearby Rent/m&sup2;: 13.09</p>')
+                    var circle28= L.circle([59.4304255, 24.6174447], { color: perc2color(59.36717515209194), fillColor: perc2color(59.36717515209194), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle28.bindPopup('<p><strong>Price to rent ratio: 16.29</strong><br /> Selling Price/m&sup2;: 1955.07<br /> Median Nearby Rent/m&sup2;: 10.00</p>')
+                    var circle29= L.circle([59.4291286, 24.6208302], { color: perc2color(59.67427108765518), fillColor: perc2color(59.67427108765518), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle29.bindPopup('<p><strong>Price to rent ratio: 16.17</strong><br /> Selling Price/m&sup2;: 1940.30<br /> Median Nearby Rent/m&sup2;: 10.00</p>')
+                    var circle30= L.circle([59.428499, 24.6590842000001], { color: perc2color(57.81965010439989), fillColor: perc2color(57.81965010439989), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle30.bindPopup('<p><strong>Price to rent ratio: 16.91</strong><br /> Selling Price/m&sup2;: 1934.46<br /> Median Nearby Rent/m&sup2;: 9.53</p>')
+                    var circle31= L.circle([59.4284287, 24.6532278], { color: perc2color(51.15967307480733), fillColor: perc2color(51.15967307480733), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle31.bindPopup('<p><strong>Price to rent ratio: 19.58</strong><br /> Selling Price/m&sup2;: 2237.31<br /> Median Nearby Rent/m&sup2;: 9.52</p>')
+                    var circle33= L.circle([59.4273976, 24.6620711], { color: perc2color(-0.0), fillColor: perc2color(-0.0), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle33.bindPopup('<p><strong>Price to rent ratio: 40.10</strong><br /> Selling Price/m&sup2;: 3280.61<br /> Median Nearby Rent/m&sup2;: 6.82</p>')
+                    var circle34= L.circle([59.43007, 24.6088777], { color: perc2color(63.30856517481712), fillColor: perc2color(63.30856517481712), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle34.bindPopup('<p><strong>Price to rent ratio: 14.71</strong><br /> Selling Price/m&sup2;: 1765.43<br /> Median Nearby Rent/m&sup2;: 10.00</p>')
+                    var circle35= L.circle([59.4286919, 24.6174966999999], { color: perc2color(54.56259720062208), fillColor: perc2color(54.56259720062208), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle35.bindPopup('<p><strong>Price to rent ratio: 18.22</strong><br /> Selling Price/m&sup2;: 2186.25<br /> Median Nearby Rent/m&sup2;: 10.00</p>')
+                    var circle36= L.circle([59.4431731, 24.6042616], { color: perc2color(64.85183922289403), fillColor: perc2color(64.85183922289403), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle36.bindPopup('<p><strong>Price to rent ratio: 14.09</strong><br /> Selling Price/m&sup2;: 1691.18<br /> Median Nearby Rent/m&sup2;: 10.00</p>')
+                    var circle37= L.circle([59.4156795, 24.6379056], { color: perc2color(66.74678354305104), fillColor: perc2color(66.74678354305104), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle37.bindPopup('<p><strong>Price to rent ratio: 13.33</strong><br /> Selling Price/m&sup2;: 1230.77<br /> Median Nearby Rent/m&sup2;: 7.69</p>')
+                    var circle38= L.circle([59.4100753, 24.6445365], { color: perc2color(64.75132537846937), fillColor: perc2color(64.75132537846937), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle38.bindPopup('<p><strong>Price to rent ratio: 14.13</strong><br /> Selling Price/m&sup2;: 1239.39<br /> Median Nearby Rent/m&sup2;: 7.31</p>')
+                    var circle39= L.circle([59.4101791, 24.664391], { color: perc2color(46.55733069418917), fillColor: perc2color(46.55733069418917), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle39.bindPopup('<p><strong>Price to rent ratio: 21.43</strong><br /> Selling Price/m&sup2;: 2142.86<br /> Median Nearby Rent/m&sup2;: 8.33</p>')
+                    var circle40= L.circle([59.4173936, 24.6379726], { color: perc2color(59.217178442553035), fillColor: perc2color(59.217178442553035), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle40.bindPopup('<p><strong>Price to rent ratio: 16.35</strong><br /> Selling Price/m&sup2;: 1641.79<br /> Median Nearby Rent/m&sup2;: 8.37</p>')
+                    var circle41= L.circle([59.4151079, 24.6390375999999], { color: perc2color(55.48039528077132), fillColor: perc2color(55.48039528077132), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle41.bindPopup('<p><strong>Price to rent ratio: 17.85</strong><br /> Selling Price/m&sup2;: 1716.42<br /> Median Nearby Rent/m&sup2;: 8.01</p>')
+                    var circle42= L.circle([59.4159998, 24.652865], { color: perc2color(59.472642443093456), fillColor: perc2color(59.472642443093456), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle42.bindPopup('<p><strong>Price to rent ratio: 16.25</strong><br /> Selling Price/m&sup2;: 1500.00<br /> Median Nearby Rent/m&sup2;: 7.69</p>')
+                    var circle43= L.circle([59.4081695, 24.6537809], { color: perc2color(47.49285750488836), fillColor: perc2color(47.49285750488836), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle43.bindPopup('<p><strong>Price to rent ratio: 21.05</strong><br /> Selling Price/m&sup2;: 1943.40<br /> Median Nearby Rent/m&sup2;: 7.69</p>')
+                    var circle44= L.circle([59.4122499, 24.6471566], { color: perc2color(48.665347094585044), fillColor: perc2color(48.665347094585044), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle44.bindPopup('<p><strong>Price to rent ratio: 20.58</strong><br /> Selling Price/m&sup2;: 1900.00<br /> Median Nearby Rent/m&sup2;: 7.69</p>')
+                    var circle45= L.circle([59.4180542, 24.6496276], { color: perc2color(65.65408788864183), fillColor: perc2color(65.65408788864183), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle45.bindPopup('<p><strong>Price to rent ratio: 13.77</strong><br /> Selling Price/m&sup2;: 1271.21<br /> Median Nearby Rent/m&sup2;: 7.69</p>')
+                    var circle46= L.circle([59.4125633, 24.642913], { color: perc2color(52.922766474300474), fillColor: perc2color(52.922766474300474), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle46.bindPopup('<p><strong>Price to rent ratio: 18.88</strong><br /> Selling Price/m&sup2;: 1742.42<br /> Median Nearby Rent/m&sup2;: 7.69</p>')
+                    var circle47= L.circle([59.4147081, 24.6418138], { color: perc2color(63.56958986157347), fillColor: perc2color(63.56958986157347), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle47.bindPopup('<p><strong>Price to rent ratio: 14.61</strong><br /> Selling Price/m&sup2;: 1404.55<br /> Median Nearby Rent/m&sup2;: 8.01</p>')
+                    var circle48= L.circle([59.411667, 24.6414913], { color: perc2color(67.99470354537354), fillColor: perc2color(67.99470354537354), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle48.bindPopup('<p><strong>Price to rent ratio: 12.83</strong><br /> Selling Price/m&sup2;: 1125.35<br /> Median Nearby Rent/m&sup2;: 7.31</p>')
+                    var circle49= L.circle([59.4203063, 24.644872], { color: perc2color(66.16430177865422), fillColor: perc2color(66.16430177865422), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle49.bindPopup('<p><strong>Price to rent ratio: 13.57</strong><br /> Selling Price/m&sup2;: 1362.12<br /> Median Nearby Rent/m&sup2;: 8.37</p>')
+                    var circle50= L.circle([59.4122063, 24.652367], { color: perc2color(65.32390570827468), fillColor: perc2color(65.32390570827468), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle50.bindPopup('<p><strong>Price to rent ratio: 13.90</strong><br /> Selling Price/m&sup2;: 1283.43<br /> Median Nearby Rent/m&sup2;: 7.69</p>')
+                    var circle51= L.circle([59.4082737, 24.6322742], { color: perc2color(62.031146090244064), fillColor: perc2color(62.031146090244064), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle51.bindPopup('<p><strong>Price to rent ratio: 15.22</strong><br /> Selling Price/m&sup2;: 1264.77<br /> Median Nearby Rent/m&sup2;: 6.92</p>')
+                    var circle52= L.circle([59.4189952, 24.6461737], { color: perc2color(63.64818837319898), fillColor: perc2color(63.64818837319898), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle52.bindPopup('<p><strong>Price to rent ratio: 14.58</strong><br /> Selling Price/m&sup2;: 1401.52<br /> Median Nearby Rent/m&sup2;: 8.01</p>')
+                    var circle53= L.circle([59.4161725, 24.6543891], { color: perc2color(64.42598614449315), fillColor: perc2color(64.42598614449315), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle53.bindPopup('<p><strong>Price to rent ratio: 14.26</strong><br /> Selling Price/m&sup2;: 1316.67<br /> Median Nearby Rent/m&sup2;: 7.69</p>')
+                    var circle54= L.circle([59.4115394791556, 24.6462824707772], { color: perc2color(56.85147006379104), fillColor: perc2color(56.85147006379104), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle54.bindPopup('<p><strong>Price to rent ratio: 17.30</strong><br /> Selling Price/m&sup2;: 1597.01<br /> Median Nearby Rent/m&sup2;: 7.69</p>')
+                    var circle55= L.circle([59.4121599, 24.6506407], { color: perc2color(62.90032940064277), fillColor: perc2color(62.90032940064277), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle55.bindPopup('<p><strong>Price to rent ratio: 14.88</strong><br /> Selling Price/m&sup2;: 1333.33<br /> Median Nearby Rent/m&sup2;: 7.47</p>')
+                    var circle56= L.circle([59.4080655, 24.6289074], { color: perc2color(56.00806718486396), fillColor: perc2color(56.00806718486396), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle56.bindPopup('<p><strong>Price to rent ratio: 17.64</strong><br /> Selling Price/m&sup2;: 1465.41<br /> Median Nearby Rent/m&sup2;: 6.92</p>')
+                    var circle57= L.circle([59.4164205, 24.640403], { color: perc2color(66.48075781139545), fillColor: perc2color(66.48075781139545), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle57.bindPopup('<p><strong>Price to rent ratio: 13.44</strong><br /> Selling Price/m&sup2;: 1292.31<br /> Median Nearby Rent/m&sup2;: 8.01</p>')
+                    var circle58= L.circle([59.4125203, 24.6486598], { color: perc2color(61.928845931390825), fillColor: perc2color(61.928845931390825), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle58.bindPopup('<p><strong>Price to rent ratio: 15.27</strong><br /> Selling Price/m&sup2;: 1409.09<br /> Median Nearby Rent/m&sup2;: 7.69</p>')
+                    var circle59= L.circle([59.4129859, 24.6397382], { color: perc2color(62.59013148593242), fillColor: perc2color(62.59013148593242), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle59.bindPopup('<p><strong>Price to rent ratio: 15.00</strong><br /> Selling Price/m&sup2;: 1384.62<br /> Median Nearby Rent/m&sup2;: 7.69</p>')
+                    var circle60= L.circle([59.4174708, 24.6519937], { color: perc2color(57.13934016714604), fillColor: perc2color(57.13934016714604), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle60.bindPopup('<p><strong>Price to rent ratio: 17.19</strong><br /> Selling Price/m&sup2;: 1507.04<br /> Median Nearby Rent/m&sup2;: 7.31</p>')
+                    var circle61= L.circle([59.4079486, 24.6380102], { color: perc2color(56.908710731625156), fillColor: perc2color(56.908710731625156), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle61.bindPopup('<p><strong>Price to rent ratio: 17.28</strong><br /> Selling Price/m&sup2;: 1515.15<br /> Median Nearby Rent/m&sup2;: 7.31</p>')
+                    var circle62= L.circle([59.4080304, 24.6343649], { color: perc2color(53.993711751705675), fillColor: perc2color(53.993711751705675), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle62.bindPopup('<p><strong>Price to rent ratio: 18.45</strong><br /> Selling Price/m&sup2;: 1617.65<br /> Median Nearby Rent/m&sup2;: 7.31</p>')
+                    var circle63= L.circle([59.4217374, 24.644323], { color: perc2color(66.16430177865422), fillColor: perc2color(66.16430177865422), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle63.bindPopup('<p><strong>Price to rent ratio: 13.57</strong><br /> Selling Price/m&sup2;: 1362.12<br /> Median Nearby Rent/m&sup2;: 8.37</p>')
+                    var circle64= L.circle([59.4073688, 24.6902277], { color: perc2color(62.06774658872995), fillColor: perc2color(62.06774658872995), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle64.bindPopup('<p><strong>Price to rent ratio: 15.21</strong><br /> Selling Price/m&sup2;: 1558.85<br /> Median Nearby Rent/m&sup2;: 8.54</p>')
+                    var circle65= L.circle([59.4050842, 24.6823097], { color: perc2color(64.39394519418028), fillColor: perc2color(64.39394519418028), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle65.bindPopup('<p><strong>Price to rent ratio: 14.28</strong><br /> Selling Price/m&sup2;: 1450.00<br /> Median Nearby Rent/m&sup2;: 8.46</p>')
+                    var circle66= L.circle([59.404335, 24.6975136999999], { color: perc2color(64.69809825829384), fillColor: perc2color(64.69809825829384), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle66.bindPopup('<p><strong>Price to rent ratio: 14.15</strong><br /> Selling Price/m&sup2;: 1450.76<br /> Median Nearby Rent/m&sup2;: 8.54</p>')
+                    var circle67= L.circle([59.3974537, 24.6674009], { color: perc2color(59.5037137624573), fillColor: perc2color(59.5037137624573), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle67.bindPopup('<p><strong>Price to rent ratio: 16.24</strong><br /> Selling Price/m&sup2;: 1517.86<br /> Median Nearby Rent/m&sup2;: 7.79</p>')
+                    var circle68= L.circle([59.4101791, 24.664391], { color: perc2color(46.55733069418917), fillColor: perc2color(46.55733069418917), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle68.bindPopup('<p><strong>Price to rent ratio: 21.43</strong><br /> Selling Price/m&sup2;: 2142.86<br /> Median Nearby Rent/m&sup2;: 8.33</p>')
+                    var circle69= L.circle([59.4062499, 24.7012336], { color: perc2color(49.018840154143426), fillColor: perc2color(49.018840154143426), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle69.bindPopup('<p><strong>Price to rent ratio: 20.44</strong><br /> Selling Price/m&sup2;: 2102.56<br /> Median Nearby Rent/m&sup2;: 8.57</p>')
+                    var circle70= L.circle([59.3970855, 24.6795568], { color: perc2color(60.86941052696092), fillColor: perc2color(60.86941052696092), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle70.bindPopup('<p><strong>Price to rent ratio: 15.69</strong><br /> Selling Price/m&sup2;: 1593.53<br /> Median Nearby Rent/m&sup2;: 8.46</p>')
+                    var circle71= L.circle([59.401744, 24.6813916], { color: perc2color(70.88937677166018), fillColor: perc2color(70.88937677166018), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle71.bindPopup('<p><strong>Price to rent ratio: 11.67</strong><br /> Selling Price/m&sup2;: 1185.48<br /> Median Nearby Rent/m&sup2;: 8.46</p>')
+                    var circle72= L.circle([59.3991196, 24.6666287], { color: perc2color(61.78561818455462), fillColor: perc2color(61.78561818455462), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle72.bindPopup('<p><strong>Price to rent ratio: 15.32</strong><br /> Selling Price/m&sup2;: 1532.26<br /> Median Nearby Rent/m&sup2;: 8.33</p>')
+                    var circle73= L.circle([59.4028147, 24.6809205], { color: perc2color(64.81895115340095), fillColor: perc2color(64.81895115340095), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle73.bindPopup('<p><strong>Price to rent ratio: 14.11</strong><br /> Selling Price/m&sup2;: 1432.69<br /> Median Nearby Rent/m&sup2;: 8.46</p>')
+                    var circle74= L.circle([59.4098013, 24.6890363], { color: perc2color(64.49713293142455), fillColor: perc2color(64.49713293142455), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle74.bindPopup('<p><strong>Price to rent ratio: 14.24</strong><br /> Selling Price/m&sup2;: 1459.02<br /> Median Nearby Rent/m&sup2;: 8.54</p>')
+                    var circle75= L.circle([59.4052460615, 24.680424279437], { color: perc2color(67.1977158505315), fillColor: perc2color(67.1977158505315), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle75.bindPopup('<p><strong>Price to rent ratio: 13.15</strong><br /> Selling Price/m&sup2;: 1335.82<br /> Median Nearby Rent/m&sup2;: 8.46</p>')
+                    var circle76= L.circle([59.408735146917, 24.677059573975], { color: perc2color(65.69969542515452), fillColor: perc2color(65.69969542515452), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle76.bindPopup('<p><strong>Price to rent ratio: 13.75</strong><br /> Selling Price/m&sup2;: 1396.83<br /> Median Nearby Rent/m&sup2;: 8.46</p>')
+                    var circle77= L.circle([59.3981518, 24.6712338], { color: perc2color(60.77674956266797), fillColor: perc2color(60.77674956266797), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle77.bindPopup('<p><strong>Price to rent ratio: 15.73</strong><br /> Selling Price/m&sup2;: 1589.44<br /> Median Nearby Rent/m&sup2;: 8.42</p>')
+                    var circle78= L.circle([59.4077151, 24.6510009], { color: perc2color(47.65216315566237), fillColor: perc2color(47.65216315566237), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle78.bindPopup('<p><strong>Price to rent ratio: 20.99</strong><br /> Selling Price/m&sup2;: 1937.50<br /> Median Nearby Rent/m&sup2;: 7.69</p>')
+                    var circle79= L.circle([59.4083068, 24.6911219], { color: perc2color(53.23315572833781), fillColor: perc2color(53.23315572833781), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle79.bindPopup('<p><strong>Price to rent ratio: 18.75</strong><br /> Selling Price/m&sup2;: 1921.92<br /> Median Nearby Rent/m&sup2;: 8.54</p>')
+                    var circle80= L.circle([59.4081695, 24.6537809], { color: perc2color(47.49285750488836), fillColor: perc2color(47.49285750488836), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle80.bindPopup('<p><strong>Price to rent ratio: 21.05</strong><br /> Selling Price/m&sup2;: 1943.40<br /> Median Nearby Rent/m&sup2;: 7.69</p>')
+                    var circle81= L.circle([59.399867, 24.6849466], { color: perc2color(64.97483744907686), fillColor: perc2color(64.97483744907686), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle81.bindPopup('<p><strong>Price to rent ratio: 14.04</strong><br /> Selling Price/m&sup2;: 1426.34<br /> Median Nearby Rent/m&sup2;: 8.46</p>')
+                    var circle82= L.circle([59.4040688, 24.7015137999999], { color: perc2color(63.88007116179868), fillColor: perc2color(63.88007116179868), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle82.bindPopup('<p><strong>Price to rent ratio: 14.48</strong><br /> Selling Price/m&sup2;: 1484.38<br /> Median Nearby Rent/m&sup2;: 8.54</p>')
+                    var circle83= L.circle([59.4044154, 24.6574315], { color: perc2color(56.67765226675506), fillColor: perc2color(56.67765226675506), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle83.bindPopup('<p><strong>Price to rent ratio: 17.37</strong><br /> Selling Price/m&sup2;: 1603.45<br /> Median Nearby Rent/m&sup2;: 7.69</p>')
+                    var circle84= L.circle([59.400235, 24.6901461], { color: perc2color(65.9035292023411), fillColor: perc2color(65.9035292023411), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle84.bindPopup('<p><strong>Price to rent ratio: 13.67</strong><br /> Selling Price/m&sup2;: 1388.52<br /> Median Nearby Rent/m&sup2;: 8.46</p>')
+                    var circle85= L.circle([59.4076569, 24.6820049], { color: perc2color(66.09276740641671), fillColor: perc2color(66.09276740641671), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle85.bindPopup('<p><strong>Price to rent ratio: 13.60</strong><br /> Selling Price/m&sup2;: 1393.44<br /> Median Nearby Rent/m&sup2;: 8.54</p>')
+                    var circle86= L.circle([59.3982156, 24.6969548], { color: perc2color(60.8861962052129), fillColor: perc2color(60.8861962052129), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle86.bindPopup('<p><strong>Price to rent ratio: 15.68</strong><br /> Selling Price/m&sup2;: 1592.85<br /> Median Nearby Rent/m&sup2;: 8.46</p>')
+                    var circle87= L.circle([59.4075733, 24.6971017], { color: perc2color(48.899805938376254), fillColor: perc2color(48.899805938376254), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle87.bindPopup('<p><strong>Price to rent ratio: 20.49</strong><br /> Selling Price/m&sup2;: 2100.00<br /> Median Nearby Rent/m&sup2;: 8.54</p>')
+                    var circle88= L.circle([59.4065711, 24.6715594], { color: perc2color(65.88839980529521), fillColor: perc2color(65.88839980529521), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle88.bindPopup('<p><strong>Price to rent ratio: 13.68</strong><br /> Selling Price/m&sup2;: 1374.59<br /> Median Nearby Rent/m&sup2;: 8.38</p>')
+                    var circle89= L.circle([59.3954107, 24.652941], { color: perc2color(50.51396340419833), fillColor: perc2color(50.51396340419833), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle89.bindPopup('<p><strong>Price to rent ratio: 19.84</strong><br /> Selling Price/m&sup2;: 1907.89<br /> Median Nearby Rent/m&sup2;: 8.01</p>')
+                    var circle90= L.circle([59.4075516, 24.6709958], { color: perc2color(68.15301408973794), fillColor: perc2color(68.15301408973794), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle90.bindPopup('<p><strong>Price to rent ratio: 12.77</strong><br /> Selling Price/m&sup2;: 1283.33<br /> Median Nearby Rent/m&sup2;: 8.38</p>')
+                    var circle91= L.circle([59.4102604, 24.6853297], { color: perc2color(65.22347904139494), fillColor: perc2color(65.22347904139494), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle91.bindPopup('<p><strong>Price to rent ratio: 13.94</strong><br /> Selling Price/m&sup2;: 1429.17<br /> Median Nearby Rent/m&sup2;: 8.54</p>')
+                    var circle92= L.circle([59.4066404, 24.6925832], { color: perc2color(64.18669194989886), fillColor: perc2color(64.18669194989886), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle92.bindPopup('<p><strong>Price to rent ratio: 14.36</strong><br /> Selling Price/m&sup2;: 1471.77<br /> Median Nearby Rent/m&sup2;: 8.54</p>')
+                    var circle93= L.circle([59.4030948, 24.6842012], { color: perc2color(65.45162792505941), fillColor: perc2color(65.45162792505941), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle93.bindPopup('<p><strong>Price to rent ratio: 13.85</strong><br /> Selling Price/m&sup2;: 1406.93<br /> Median Nearby Rent/m&sup2;: 8.46</p>')
+                    var circle94= L.circle([59.4015686626533, 24.6854373344238], { color: perc2color(67.03068526176784), fillColor: perc2color(67.03068526176784), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle94.bindPopup('<p><strong>Price to rent ratio: 13.22</strong><br /> Selling Price/m&sup2;: 1342.62<br /> Median Nearby Rent/m&sup2;: 8.46</p>')
+                    var circle95= L.circle([59.4065336, 24.6953089], { color: perc2color(65.14958516378363), fillColor: perc2color(65.14958516378363), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle95.bindPopup('<p><strong>Price to rent ratio: 13.97</strong><br /> Selling Price/m&sup2;: 1432.20<br /> Median Nearby Rent/m&sup2;: 8.54</p>')
+                    var circle96= L.circle([59.4054036, 24.6784544], { color: perc2color(60.079678263316225), fillColor: perc2color(60.079678263316225), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle96.bindPopup('<p><strong>Price to rent ratio: 16.01</strong><br /> Selling Price/m&sup2;: 1616.67<br /> Median Nearby Rent/m&sup2;: 8.42</p>')
+                    var circle97= L.circle([59.3988482, 24.6877087], { color: perc2color(65.18193302570383), fillColor: perc2color(65.18193302570383), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle97.bindPopup('<p><strong>Price to rent ratio: 13.96</strong><br /> Selling Price/m&sup2;: 1417.91<br /> Median Nearby Rent/m&sup2;: 8.46</p>')
+                    var circle98= L.circle([59.4007166915984, 24.6718680380371], { color: perc2color(63.588313914819274), fillColor: perc2color(63.588313914819274), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle98.bindPopup('<p><strong>Price to rent ratio: 14.60</strong><br /> Selling Price/m&sup2;: 1474.58<br /> Median Nearby Rent/m&sup2;: 8.42</p>')
+                    var circle99= L.circle([59.4009247, 24.6661662], { color: perc2color(65.86294805301108), fillColor: perc2color(65.86294805301108), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle99.bindPopup('<p><strong>Price to rent ratio: 13.69</strong><br /> Selling Price/m&sup2;: 1383.33<br /> Median Nearby Rent/m&sup2;: 8.42</p>')
+                    var circle100= L.circle([59.397138, 24.6953828000001], { color: perc2color(60.77496913194943), fillColor: perc2color(60.77496913194943), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle100.bindPopup('<p><strong>Price to rent ratio: 15.73</strong><br /> Selling Price/m&sup2;: 1597.38<br /> Median Nearby Rent/m&sup2;: 8.46</p>')
+                    var circle101= L.circle([59.4036084, 24.6617317], { color: perc2color(59.49561279500555), fillColor: perc2color(59.49561279500555), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle101.bindPopup('<p><strong>Price to rent ratio: 16.24</strong><br /> Selling Price/m&sup2;: 1455.70<br /> Median Nearby Rent/m&sup2;: 7.47</p>')
+                    var circle102= L.circle([59.4072464, 24.6849546], { color: perc2color(66.32712621993119), fillColor: perc2color(66.32712621993119), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle102.bindPopup('<p><strong>Price to rent ratio: 13.50</strong><br /> Selling Price/m&sup2;: 1383.81<br /> Median Nearby Rent/m&sup2;: 8.54</p>')
+                    var circle103= L.circle([59.4077771, 24.688536], { color: perc2color(62.8017713017454), fillColor: perc2color(62.8017713017454), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle103.bindPopup('<p><strong>Price to rent ratio: 14.92</strong><br /> Selling Price/m&sup2;: 1528.69<br /> Median Nearby Rent/m&sup2;: 8.54</p>')
+                    var circle104= L.circle([59.4015681, 24.6911782], { color: perc2color(57.73164777149723), fillColor: perc2color(57.73164777149723), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle104.bindPopup('<p><strong>Price to rent ratio: 16.95</strong><br /> Selling Price/m&sup2;: 1721.31<br /> Median Nearby Rent/m&sup2;: 8.46</p>')
+                    var circle105= L.circle([59.4020222, 24.6692822], { color: perc2color(63.76090995862821), fillColor: perc2color(63.76090995862821), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle105.bindPopup('<p><strong>Price to rent ratio: 14.53</strong><br /> Selling Price/m&sup2;: 1468.51<br /> Median Nearby Rent/m&sup2;: 8.42</p>')
+                    var circle106= L.circle([59.3977668, 24.6918286], { color: perc2color(56.52398056496858), fillColor: perc2color(56.52398056496858), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle106.bindPopup('<p><strong>Price to rent ratio: 17.43</strong><br /> Selling Price/m&sup2;: 1770.49<br /> Median Nearby Rent/m&sup2;: 8.46</p>')
+                    var circle107= L.circle([59.4023149, 24.6958056], { color: perc2color(69.42702584786801), fillColor: perc2color(69.42702584786801), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle107.bindPopup('<p><strong>Price to rent ratio: 12.26</strong><br /> Selling Price/m&sup2;: 1245.04<br /> Median Nearby Rent/m&sup2;: 8.46</p>')
+                    var circle108= L.circle([59.4082545, 24.6980917999999], { color: perc2color(67.40548796740316), fillColor: perc2color(67.40548796740316), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle108.bindPopup('<p><strong>Price to rent ratio: 13.07</strong><br /> Selling Price/m&sup2;: 1344.26<br /> Median Nearby Rent/m&sup2;: 8.57</p>')
+                    var circle109= L.circle([59.407207, 24.6694606], { color: perc2color(65.0182747668235), fillColor: perc2color(65.0182747668235), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle109.bindPopup('<p><strong>Price to rent ratio: 14.03</strong><br /> Selling Price/m&sup2;: 1416.67<br /> Median Nearby Rent/m&sup2;: 8.42</p>')
+                    var circle110= L.circle([59.4081488, 24.7011362000001], { color: perc2color(55.567011831407356), fillColor: perc2color(55.567011831407356), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle110.bindPopup('<p><strong>Price to rent ratio: 17.82</strong><br /> Selling Price/m&sup2;: 1919.27<br /> Median Nearby Rent/m&sup2;: 8.98</p>')
+                    var circle111= L.circle([59.4030394, 24.6927929], { color: perc2color(62.9712621067009), fillColor: perc2color(62.9712621067009), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle111.bindPopup('<p><strong>Price to rent ratio: 14.85</strong><br /> Selling Price/m&sup2;: 1507.94<br /> Median Nearby Rent/m&sup2;: 8.46</p>')
+                    var circle112= L.circle([59.3997851, 24.6971439], { color: perc2color(65.01790658422009), fillColor: perc2color(65.01790658422009), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle112.bindPopup('<p><strong>Price to rent ratio: 14.03</strong><br /> Selling Price/m&sup2;: 1424.59<br /> Median Nearby Rent/m&sup2;: 8.46</p>')
+                    var circle113= L.circle([59.4065614, 24.6991697], { color: perc2color(54.64359078849977), fillColor: perc2color(54.64359078849977), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle113.bindPopup('<p><strong>Price to rent ratio: 18.19</strong><br /> Selling Price/m&sup2;: 1870.59<br /> Median Nearby Rent/m&sup2;: 8.57</p>')
+                    var circle114= L.circle([59.4084822, 24.6957738], { color: perc2color(65.30794244635614), fillColor: perc2color(65.30794244635614), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle114.bindPopup('<p><strong>Price to rent ratio: 13.91</strong><br /> Selling Price/m&sup2;: 1430.77<br /> Median Nearby Rent/m&sup2;: 8.57</p>')
+                    var circle115= L.circle([59.396213, 24.689928], { color: perc2color(57.15779172300489), fillColor: perc2color(57.15779172300489), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle115.bindPopup('<p><strong>Price to rent ratio: 17.18</strong><br /> Selling Price/m&sup2;: 1744.68<br /> Median Nearby Rent/m&sup2;: 8.46</p>')
+                    var circle116= L.circle([59.4023973, 24.6638583], { color: perc2color(55.74412554785805), fillColor: perc2color(55.74412554785805), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle116.bindPopup('<p><strong>Price to rent ratio: 17.75</strong><br /> Selling Price/m&sup2;: 1638.00<br /> Median Nearby Rent/m&sup2;: 7.69</p>')
+                    var circle117= L.circle([59.4089892, 24.7018399999999], { color: perc2color(65.89548438596732), fillColor: perc2color(65.89548438596732), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle117.bindPopup('<p><strong>Price to rent ratio: 13.67</strong><br /> Selling Price/m&sup2;: 1475.00<br /> Median Nearby Rent/m&sup2;: 8.99</p>')
+                    var circle118= L.circle([59.4071722, 24.6803575], { color: perc2color(64.77067026999464), fillColor: perc2color(64.77067026999464), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle118.bindPopup('<p><strong>Price to rent ratio: 14.13</strong><br /> Selling Price/m&sup2;: 1442.62<br /> Median Nearby Rent/m&sup2;: 8.51</p>')
+                    var circle119= L.circle([59.4016158, 24.6889063], { color: perc2color(64.21108211007116), fillColor: perc2color(64.21108211007116), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle119.bindPopup('<p><strong>Price to rent ratio: 14.35</strong><br /> Selling Price/m&sup2;: 1457.45<br /> Median Nearby Rent/m&sup2;: 8.46</p>')
+                    var circle120= L.circle([59.4090074, 24.6776808], { color: perc2color(65.37117020857428), fillColor: perc2color(65.37117020857428), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle120.bindPopup('<p><strong>Price to rent ratio: 13.88</strong><br /> Selling Price/m&sup2;: 1418.03<br /> Median Nearby Rent/m&sup2;: 8.51</p>')
+                    var circle121= L.circle([59.3972856, 24.6807757], { color: perc2color(68.15063136772277), fillColor: perc2color(68.15063136772277), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle121.bindPopup('<p><strong>Price to rent ratio: 12.77</strong><br /> Selling Price/m&sup2;: 1297.01<br /> Median Nearby Rent/m&sup2;: 8.46</p>')
+                    var circle122= L.circle([59.4023167, 24.6754526], { color: perc2color(69.54532156170515), fillColor: perc2color(69.54532156170515), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle122.bindPopup('<p><strong>Price to rent ratio: 12.21</strong><br /> Selling Price/m&sup2;: 1233.33<br /> Median Nearby Rent/m&sup2;: 8.42</p>')
+                    var circle123= L.circle([59.4039309, 24.6741166], { color: perc2color(62.96052622369546), fillColor: perc2color(62.96052622369546), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle123.bindPopup('<p><strong>Price to rent ratio: 14.85</strong><br /> Selling Price/m&sup2;: 1500.00<br /> Median Nearby Rent/m&sup2;: 8.42</p>')
+                    var circle124= L.circle([59.4095871, 24.6922204], { color: perc2color(66.33876105464466), fillColor: perc2color(66.33876105464466), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle124.bindPopup('<p><strong>Price to rent ratio: 13.50</strong><br /> Selling Price/m&sup2;: 1383.33<br /> Median Nearby Rent/m&sup2;: 8.54</p>')
+                    var circle125= L.circle([59.4155594, 24.7185664], { color: perc2color(60.21286815189539), fillColor: perc2color(60.21286815189539), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle125.bindPopup('<p><strong>Price to rent ratio: 15.95</strong><br /> Selling Price/m&sup2;: 1767.12<br /> Median Nearby Rent/m&sup2;: 9.23</p>')
+                    var circle126= L.circle([59.4248974, 24.7014086], { color: perc2color(58.57639462191987), fillColor: perc2color(58.57639462191987), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle126.bindPopup('<p><strong>Price to rent ratio: 16.61</strong><br /> Selling Price/m&sup2;: 1850.76<br /> Median Nearby Rent/m&sup2;: 9.29</p>')
+                    var circle127= L.circle([59.4180301, 24.7125189999999], { color: perc2color(43.883004901864275), fillColor: perc2color(43.883004901864275), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle127.bindPopup('<p><strong>Price to rent ratio: 22.50</strong><br /> Selling Price/m&sup2;: 2492.41<br /> Median Nearby Rent/m&sup2;: 9.23</p>')
+                    var circle128= L.circle([59.41253, 24.6852794], { color: perc2color(51.74970376699466), fillColor: perc2color(51.74970376699466), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle128.bindPopup('<p><strong>Price to rent ratio: 19.35</strong><br /> Selling Price/m&sup2;: 1982.88<br /> Median Nearby Rent/m&sup2;: 8.54</p>')
+                    var circle129= L.circle([59.4129971, 24.6907213], { color: perc2color(63.09430428882729), fillColor: perc2color(63.09430428882729), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle129.bindPopup('<p><strong>Price to rent ratio: 14.80</strong><br /> Selling Price/m&sup2;: 1516.67<br /> Median Nearby Rent/m&sup2;: 8.54</p>')
+                    var circle130= L.circle([59.4133834, 24.6974737], { color: perc2color(40.93833991194005), fillColor: perc2color(40.93833991194005), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle130.bindPopup('<p><strong>Price to rent ratio: 23.68</strong><br /> Selling Price/m&sup2;: 2484.85<br /> Median Nearby Rent/m&sup2;: 8.74</p>')
+                    var circle131= L.circle([59.4254276, 24.6947248], { color: perc2color(68.40288797686152), fillColor: perc2color(68.40288797686152), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle131.bindPopup('<p><strong>Price to rent ratio: 12.67</strong><br /> Selling Price/m&sup2;: 1395.16<br /> Median Nearby Rent/m&sup2;: 9.18</p>')
+                    var circle132= L.circle([59.4181475, 24.6998097], { color: perc2color(42.94791294150914), fillColor: perc2color(42.94791294150914), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle132.bindPopup('<p><strong>Price to rent ratio: 22.88</strong><br /> Selling Price/m&sup2;: 2470.59<br /> Median Nearby Rent/m&sup2;: 9.00</p>')
+                    var circle133= L.circle([59.4234987, 24.7030855], { color: perc2color(65.24011828691599), fillColor: perc2color(65.24011828691599), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle133.bindPopup('<p><strong>Price to rent ratio: 13.94</strong><br /> Selling Price/m&sup2;: 1553.03<br /> Median Nearby Rent/m&sup2;: 9.29</p>')
+                    var circle134= L.circle([59.4202841, 24.7064594999999], { color: perc2color(66.42704107711884), fillColor: perc2color(66.42704107711884), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle134.bindPopup('<p><strong>Price to rent ratio: 13.46</strong><br /> Selling Price/m&sup2;: 1500.00<br /> Median Nearby Rent/m&sup2;: 9.29</p>')
+                    var circle135= L.circle([59.4223668, 24.7016727], { color: perc2color(65.0640888608149), fillColor: perc2color(65.0640888608149), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle135.bindPopup('<p><strong>Price to rent ratio: 14.01</strong><br /> Selling Price/m&sup2;: 1556.28<br /> Median Nearby Rent/m&sup2;: 9.26</p>')
+                    var circle136= L.circle([59.4224279, 24.7255768], { color: perc2color(55.77623599894582), fillColor: perc2color(55.77623599894582), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle136.bindPopup('<p><strong>Price to rent ratio: 17.73</strong><br /> Selling Price/m&sup2;: 2400.00<br /> Median Nearby Rent/m&sup2;: 11.28</p>')
+                    var circle137= L.circle([59.420797, 24.7077730999999], { color: perc2color(59.06470430046561), fillColor: perc2color(59.06470430046561), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle137.bindPopup('<p><strong>Price to rent ratio: 16.41</strong><br /> Selling Price/m&sup2;: 1823.53<br /> Median Nearby Rent/m&sup2;: 9.26</p>')
+                    var circle138= L.circle([59.4123666, 24.7087177999999], { color: perc2color(50.684252787509756), fillColor: perc2color(50.684252787509756), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle138.bindPopup('<p><strong>Price to rent ratio: 19.77</strong><br /> Selling Price/m&sup2;: 2132.88<br /> Median Nearby Rent/m&sup2;: 8.99</p>')
+                    var circle139= L.circle([59.4274903, 24.7168081], { color: perc2color(73.96854160320561), fillColor: perc2color(73.96854160320561), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle139.bindPopup('<p><strong>Price to rent ratio: 10.44</strong><br /> Selling Price/m&sup2;: 1437.70<br /> Median Nearby Rent/m&sup2;: 11.48</p>')
+                    var circle140= L.circle([59.4214618, 24.7026587], { color: perc2color(68.81803562324902), fillColor: perc2color(68.81803562324902), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle140.bindPopup('<p><strong>Price to rent ratio: 12.50</strong><br /> Selling Price/m&sup2;: 1380.95<br /> Median Nearby Rent/m&sup2;: 9.20</p>')
+                    var circle141= L.circle([59.4167165, 24.7240233], { color: perc2color(59.360676961252004), fillColor: perc2color(59.360676961252004), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle141.bindPopup('<p><strong>Price to rent ratio: 16.29</strong><br /> Selling Price/m&sup2;: 1810.34<br /> Median Nearby Rent/m&sup2;: 9.26</p>')
+                    var circle142= L.circle([59.4191397, 24.7134294], { color: perc2color(57.16138574714805), fillColor: perc2color(57.16138574714805), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle142.bindPopup('<p><strong>Price to rent ratio: 17.18</strong><br /> Selling Price/m&sup2;: 1913.98<br /> Median Nearby Rent/m&sup2;: 9.29</p>')
+                    var circle143= L.circle([59.4155376, 24.7234669], { color: perc2color(65.8251449172911), fillColor: perc2color(65.8251449172911), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle143.bindPopup('<p><strong>Price to rent ratio: 13.70</strong><br /> Selling Price/m&sup2;: 1517.86<br /> Median Nearby Rent/m&sup2;: 9.23</p>')
+                    var circle144= L.circle([59.4210766646443, 24.7043556481324], { color: perc2color(67.32231998172901), fillColor: perc2color(67.32231998172901), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle144.bindPopup('<p><strong>Price to rent ratio: 13.10</strong><br /> Selling Price/m&sup2;: 1460.00<br /> Median Nearby Rent/m&sup2;: 9.29</p>')
+                    var circle145= L.circle([59.4201103, 24.700325], { color: perc2color(67.47876654101611), fillColor: perc2color(67.47876654101611), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle145.bindPopup('<p><strong>Price to rent ratio: 13.04</strong><br /> Selling Price/m&sup2;: 1417.91<br /> Median Nearby Rent/m&sup2;: 9.06</p>')
+                    var circle146= L.circle([59.4167277, 24.7298108], { color: perc2color(62.69225882211768), fillColor: perc2color(62.69225882211768), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle146.bindPopup('<p><strong>Price to rent ratio: 14.96</strong><br /> Selling Price/m&sup2;: 1924.73<br /> Median Nearby Rent/m&sup2;: 10.72</p>')
+                    var circle147= L.circle([59.4246473, 24.7229327], { color: perc2color(61.326091396075846), fillColor: perc2color(61.326091396075846), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle147.bindPopup('<p><strong>Price to rent ratio: 15.51</strong><br /> Selling Price/m&sup2;: 2100.93<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle148= L.circle([59.424185, 24.6937143], { color: perc2color(64.7596340770427), fillColor: perc2color(64.7596340770427), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle148.bindPopup('<p><strong>Price to rent ratio: 14.13</strong><br /> Selling Price/m&sup2;: 1546.88<br /> Median Nearby Rent/m&sup2;: 9.12</p>')
+                    var circle149= L.circle([59.4256156, 24.7213845], { color: perc2color(66.92759457153886), fillColor: perc2color(66.92759457153886), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle149.bindPopup('<p><strong>Price to rent ratio: 13.26</strong><br /> Selling Price/m&sup2;: 1796.63<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle150= L.circle([59.4213782, 24.6994305], { color: perc2color(70.22139056272377), fillColor: perc2color(70.22139056272377), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle150.bindPopup('<p><strong>Price to rent ratio: 11.94</strong><br /> Selling Price/m&sup2;: 1298.33<br /> Median Nearby Rent/m&sup2;: 9.06</p>')
+                    var circle151= L.circle([59.4197593, 24.7285899], { color: perc2color(58.99675631180317), fillColor: perc2color(58.99675631180317), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle151.bindPopup('<p><strong>Price to rent ratio: 16.44</strong><br /> Selling Price/m&sup2;: 2115.38<br /> Median Nearby Rent/m&sup2;: 10.72</p>')
+                    var circle152= L.circle([59.422791, 24.6984555], { color: perc2color(49.22394802129625), fillColor: perc2color(49.22394802129625), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle152.bindPopup('<p><strong>Price to rent ratio: 20.36</strong><br /> Selling Price/m&sup2;: 2228.81<br /> Median Nearby Rent/m&sup2;: 9.12</p>')
+                    var circle153= L.circle([59.4139463, 24.7009353], { color: perc2color(63.61557956864074), fillColor: perc2color(63.61557956864074), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle153.bindPopup('<p><strong>Price to rent ratio: 14.59</strong><br /> Selling Price/m&sup2;: 1530.77<br /> Median Nearby Rent/m&sup2;: 8.74</p>')
+                    var circle154= L.circle([59.4210053, 24.7292765], { color: perc2color(68.5761200736557), fillColor: perc2color(68.5761200736557), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle154.bindPopup('<p><strong>Price to rent ratio: 12.60</strong><br /> Selling Price/m&sup2;: 1705.36<br /> Median Nearby Rent/m&sup2;: 11.28</p>')
+                    var circle155= L.circle([59.4222974, 24.7176672000001], { color: perc2color(44.901479307885296), fillColor: perc2color(44.901479307885296), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle155.bindPopup('<p><strong>Price to rent ratio: 22.09</strong><br /> Selling Price/m&sup2;: 2960.40<br /> Median Nearby Rent/m&sup2;: 11.17</p>')
+                    var circle156= L.circle([59.4251484, 24.7182402], { color: perc2color(66.89008907111551), fillColor: perc2color(66.89008907111551), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle156.bindPopup('<p><strong>Price to rent ratio: 13.28</strong><br /> Selling Price/m&sup2;: 1798.67<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle157= L.circle([59.4248735, 24.7047721], { color: perc2color(62.123159912225596), fillColor: perc2color(62.123159912225596), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle157.bindPopup('<p><strong>Price to rent ratio: 15.19</strong><br /> Selling Price/m&sup2;: 1692.29<br /> Median Nearby Rent/m&sup2;: 9.29</p>')
+                    var circle158= L.circle([59.4315762, 24.7262317], { color: perc2color(50.5178249387249), fillColor: perc2color(50.5178249387249), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle158.bindPopup('<p><strong>Price to rent ratio: 19.84</strong><br /> Selling Price/m&sup2;: 2732.88<br /> Median Nearby Rent/m&sup2;: 11.48</p>')
+                    var circle159= L.circle([59.4315464, 24.7316233], { color: perc2color(60.16836088396128), fillColor: perc2color(60.16836088396128), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle159.bindPopup('<p><strong>Price to rent ratio: 15.97</strong><br /> Selling Price/m&sup2;: 2235.95<br /> Median Nearby Rent/m&sup2;: 11.67</p>')
+                    var circle160= L.circle([59.430535, 24.7451348], { color: perc2color(41.97092227396462), fillColor: perc2color(41.97092227396462), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle160.bindPopup('<p><strong>Price to rent ratio: 23.27</strong><br /> Selling Price/m&sup2;: 3204.92<br /> Median Nearby Rent/m&sup2;: 11.48</p>')
+                    var circle161= L.circle([59.4291156, 24.7425297], { color: perc2color(39.21470009479595), fillColor: perc2color(39.21470009479595), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle161.bindPopup('<p><strong>Price to rent ratio: 24.37</strong><br /> Selling Price/m&sup2;: 3357.14<br /> Median Nearby Rent/m&sup2;: 11.48</p>')
+                    var circle162= L.circle([59.429464, 24.727179], { color: perc2color(63.56939819339164), fillColor: perc2color(63.56939819339164), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle162.bindPopup('<p><strong>Price to rent ratio: 14.61</strong><br /> Selling Price/m&sup2;: 1979.06<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle163= L.circle([59.430909, 24.7433766], { color: perc2color(39.96102638521724), fillColor: perc2color(39.96102638521724), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle163.bindPopup('<p><strong>Price to rent ratio: 24.07</strong><br /> Selling Price/m&sup2;: 3370.28<br /> Median Nearby Rent/m&sup2;: 11.67</p>')
+                    var circle164= L.circle([59.4308212, 24.7425317], { color: perc2color(44.188249082933595), fillColor: perc2color(44.188249082933595), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle164.bindPopup('<p><strong>Price to rent ratio: 22.38</strong><br /> Selling Price/m&sup2;: 3082.46<br /> Median Nearby Rent/m&sup2;: 11.48</p>')
+                    var circle165= L.circle([59.4288521, 24.7344976], { color: perc2color(59.97900563400468), fillColor: perc2color(59.97900563400468), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle165.bindPopup('<p><strong>Price to rent ratio: 16.05</strong><br /> Selling Price/m&sup2;: 2246.58<br /> Median Nearby Rent/m&sup2;: 11.67</p>')
+                    var circle166= L.circle([59.428514302122, 24.7437438777899], { color: perc2color(61.20087240093359), fillColor: perc2color(61.20087240093359), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle166.bindPopup('<p><strong>Price to rent ratio: 15.56</strong><br /> Selling Price/m&sup2;: 2142.86<br /> Median Nearby Rent/m&sup2;: 11.48</p>')
+                    var circle167= L.circle([59.4311707, 24.7464635], { color: perc2color(44.63750213934383), fillColor: perc2color(44.63750213934383), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle167.bindPopup('<p><strong>Price to rent ratio: 22.20</strong><br /> Selling Price/m&sup2;: 3007.52<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle168= L.circle([59.4274012, 24.7363049], { color: perc2color(43.72967623356426), fillColor: perc2color(43.72967623356426), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle168.bindPopup('<p><strong>Price to rent ratio: 22.56</strong><br /> Selling Price/m&sup2;: 3158.73<br /> Median Nearby Rent/m&sup2;: 11.67</p>')
+                    var circle169= L.circle([59.434567, 24.7462596], { color: perc2color(45.433338046090775), fillColor: perc2color(45.433338046090775), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle169.bindPopup('<p><strong>Price to rent ratio: 21.88</strong><br /> Selling Price/m&sup2;: 2964.29<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle170= L.circle([59.4331391, 24.7282838], { color: perc2color(51.30182374889322), fillColor: perc2color(51.30182374889322), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle170.bindPopup('<p><strong>Price to rent ratio: 19.53</strong><br /> Selling Price/m&sup2;: 2737.82<br /> Median Nearby Rent/m&sup2;: 11.68</p>')
+                    var circle171= L.circle([59.4301591, 24.7299692], { color: perc2color(55.27298599704911), fillColor: perc2color(55.27298599704911), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle171.bindPopup('<p><strong>Price to rent ratio: 17.93</strong><br /> Selling Price/m&sup2;: 2514.56<br /> Median Nearby Rent/m&sup2;: 11.68</p>')
+                    var circle172= L.circle([59.4333061, 24.7320517000001], { color: perc2color(52.41845986447593), fillColor: perc2color(52.41845986447593), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle172.bindPopup('<p><strong>Price to rent ratio: 19.08</strong><br /> Selling Price/m&sup2;: 2679.10<br /> Median Nearby Rent/m&sup2;: 11.70</p>')
+                    var circle173= L.circle([59.4276937, 24.7449132], { color: perc2color(60.80870917573873), fillColor: perc2color(60.80870917573873), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle173.bindPopup('<p><strong>Price to rent ratio: 15.71</strong><br /> Selling Price/m&sup2;: 2200.00<br /> Median Nearby Rent/m&sup2;: 11.67</p>')
+                    var circle174= L.circle([59.4308397, 24.7280328], { color: perc2color(61.08883455129744), fillColor: perc2color(61.08883455129744), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle174.bindPopup('<p><strong>Price to rent ratio: 15.60</strong><br /> Selling Price/m&sup2;: 2184.28<br /> Median Nearby Rent/m&sup2;: 11.67</p>')
+                    var circle175= L.circle([59.4291377, 24.7338286], { color: perc2color(72.34107465751896), fillColor: perc2color(72.34107465751896), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle175.bindPopup('<p><strong>Price to rent ratio: 11.09</strong><br /> Selling Price/m&sup2;: 1552.63<br /> Median Nearby Rent/m&sup2;: 11.67</p>')
+                    var circle176= L.circle([59.4306947, 24.733034], { color: perc2color(66.71079521355217), fillColor: perc2color(66.71079521355217), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle176.bindPopup('<p><strong>Price to rent ratio: 13.35</strong><br /> Selling Price/m&sup2;: 1868.69<br /> Median Nearby Rent/m&sup2;: 11.67</p>')
+                    var circle177= L.circle([59.433461219899, 24.725496059725], { color: perc2color(67.9343984165135), fillColor: perc2color(67.9343984165135), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle177.bindPopup('<p><strong>Price to rent ratio: 12.86</strong><br /> Selling Price/m&sup2;: 1800.00<br /> Median Nearby Rent/m&sup2;: 11.67</p>')
+                    var circle178= L.circle([59.4276941, 24.7310684], { color: perc2color(61.5316051856724), fillColor: perc2color(61.5316051856724), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle178.bindPopup('<p><strong>Price to rent ratio: 15.42</strong><br /> Selling Price/m&sup2;: 2159.42<br /> Median Nearby Rent/m&sup2;: 11.67</p>')
+                    var circle179= L.circle([59.4313346, 24.7356275], { color: perc2color(61.28832287463703), fillColor: perc2color(61.28832287463703), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle179.bindPopup('<p><strong>Price to rent ratio: 15.52</strong><br /> Selling Price/m&sup2;: 2173.08<br /> Median Nearby Rent/m&sup2;: 11.67</p>')
+                    var circle180= L.circle([59.4345374, 24.7280766], { color: perc2color(53.69165971693813), fillColor: perc2color(53.69165971693813), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle180.bindPopup('<p><strong>Price to rent ratio: 18.57</strong><br /> Selling Price/m&sup2;: 2621.43<br /> Median Nearby Rent/m&sup2;: 11.77</p>')
+                    var circle181= L.circle([59.427448, 24.733558], { color: perc2color(64.89152112377161), fillColor: perc2color(64.89152112377161), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle181.bindPopup('<p><strong>Price to rent ratio: 14.08</strong><br /> Selling Price/m&sup2;: 1939.02<br /> Median Nearby Rent/m&sup2;: 11.48</p>')
+                    var circle182= L.circle([59.4319878, 24.7345402], { color: perc2color(29.308638484377212), fillColor: perc2color(29.308638484377212), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle182.bindPopup('<p><strong>Price to rent ratio: 28.34</strong><br /> Selling Price/m&sup2;: 3968.25<br /> Median Nearby Rent/m&sup2;: 11.67</p>')
+                    var circle183= L.circle([59.4318372, 24.7407224], { color: perc2color(53.47697199926759), fillColor: perc2color(53.47697199926759), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle183.bindPopup('<p><strong>Price to rent ratio: 18.65</strong><br /> Selling Price/m&sup2;: 2569.44<br /> Median Nearby Rent/m&sup2;: 11.48</p>')
+                    var circle184= L.circle([59.4286091, 24.7286882], { color: perc2color(60.32505583641665), fillColor: perc2color(60.32505583641665), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle184.bindPopup('<p><strong>Price to rent ratio: 15.91</strong><br /> Selling Price/m&sup2;: 2191.23<br /> Median Nearby Rent/m&sup2;: 11.48</p>')
+                    var circle185= L.circle([59.439615, 24.7157062], { color: perc2color(67.99006786370705), fillColor: perc2color(67.99006786370705), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle185.bindPopup('<p><strong>Price to rent ratio: 12.83</strong><br /> Selling Price/m&sup2;: 1796.88<br /> Median Nearby Rent/m&sup2;: 11.67</p>')
+                    var circle186= L.circle([59.4361868, 24.7285697], { color: perc2color(53.26600516689588), fillColor: perc2color(53.26600516689588), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle186.bindPopup('<p><strong>Price to rent ratio: 18.74</strong><br /> Selling Price/m&sup2;: 2659.68<br /> Median Nearby Rent/m&sup2;: 11.83</p>')
+                    var circle187= L.circle([59.4362241, 24.7169039], { color: perc2color(63.13547080612324), fillColor: perc2color(63.13547080612324), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle187.bindPopup('<p><strong>Price to rent ratio: 14.78</strong><br /> Selling Price/m&sup2;: 2036.01<br /> Median Nearby Rent/m&sup2;: 11.48</p>')
+                    var circle188= L.circle([59.4352536, 24.7259158], { color: perc2color(48.25544466348679), fillColor: perc2color(48.25544466348679), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle188.bindPopup('<p><strong>Price to rent ratio: 20.75</strong><br /> Selling Price/m&sup2;: 2909.09<br /> Median Nearby Rent/m&sup2;: 11.68</p>')
+                    var circle189= L.circle([59.4418277, 24.7330765], { color: perc2color(42.65061707697596), fillColor: perc2color(42.65061707697596), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle189.bindPopup('<p><strong>Price to rent ratio: 23.00</strong><br /> Selling Price/m&sup2;: 3246.45<br /> Median Nearby Rent/m&sup2;: 11.77</p>')
+                    var circle190= L.circle([59.4402151, 24.7170869], { color: perc2color(72.61634166766359), fillColor: perc2color(72.61634166766359), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle190.bindPopup('<p><strong>Price to rent ratio: 10.98</strong><br /> Selling Price/m&sup2;: 1537.18<br /> Median Nearby Rent/m&sup2;: 11.67</p>')
+                    var circle191= L.circle([59.4377754, 24.7252552], { color: perc2color(55.89540249090651), fillColor: perc2color(55.89540249090651), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle191.bindPopup('<p><strong>Price to rent ratio: 17.68</strong><br /> Selling Price/m&sup2;: 2483.33<br /> Median Nearby Rent/m&sup2;: 11.70</p>')
+                    var circle192= L.circle([59.43868, 24.70737], { color: perc2color(64.74902422307588), fillColor: perc2color(64.74902422307588), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle192.bindPopup('<p><strong>Price to rent ratio: 14.13</strong><br /> Selling Price/m&sup2;: 1894.00<br /> Median Nearby Rent/m&sup2;: 11.17</p>')
+                    var circle193= L.circle([59.4404352, 24.7167794], { color: perc2color(56.33768847564474), fillColor: perc2color(56.33768847564474), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle193.bindPopup('<p><strong>Price to rent ratio: 17.51</strong><br /> Selling Price/m&sup2;: 2450.98<br /> Median Nearby Rent/m&sup2;: 11.67</p>')
+                    var circle194= L.circle([59.437862766732, 24.711713392334], { color: perc2color(65.20132266204993), fillColor: perc2color(65.20132266204993), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle194.bindPopup('<p><strong>Price to rent ratio: 13.95</strong><br /> Selling Price/m&sup2;: 1886.60<br /> Median Nearby Rent/m&sup2;: 11.27</p>')
+                    var circle195= L.circle([59.434859, 24.7302897], { color: perc2color(45.337178426933214), fillColor: perc2color(45.337178426933214), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle195.bindPopup('<p><strong>Price to rent ratio: 21.92</strong><br /> Selling Price/m&sup2;: 3068.49<br /> Median Nearby Rent/m&sup2;: 11.67</p>')
+                    var circle196= L.circle([59.437933, 24.7228083], { color: perc2color(64.50489055691939), fillColor: perc2color(64.50489055691939), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle196.bindPopup('<p><strong>Price to rent ratio: 14.23</strong><br /> Selling Price/m&sup2;: 1998.57<br /> Median Nearby Rent/m&sup2;: 11.70</p>')
+                    var circle197= L.circle([59.435675, 24.7219673], { color: perc2color(63.984288076518794), fillColor: perc2color(63.984288076518794), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle197.bindPopup('<p><strong>Price to rent ratio: 14.44</strong><br /> Selling Price/m&sup2;: 1956.52<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle198= L.circle([59.4345374, 24.7280766], { color: perc2color(53.69165971693813), fillColor: perc2color(53.69165971693813), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle198.bindPopup('<p><strong>Price to rent ratio: 18.57</strong><br /> Selling Price/m&sup2;: 2621.43<br /> Median Nearby Rent/m&sup2;: 11.77</p>')
+                    var circle199= L.circle([59.4386635, 24.710611], { color: perc2color(28.415865836074275), fillColor: perc2color(28.415865836074275), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle199.bindPopup('<p><strong>Price to rent ratio: 28.70</strong><br /> Selling Price/m&sup2;: 3846.15<br /> Median Nearby Rent/m&sup2;: 11.17</p>')
+                    var circle200= L.circle([59.437012, 24.7143479], { color: perc2color(60.7804666639108), fillColor: perc2color(60.7804666639108), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle200.bindPopup('<p><strong>Price to rent ratio: 15.73</strong><br /> Selling Price/m&sup2;: 2166.08<br /> Median Nearby Rent/m&sup2;: 11.48</p>')
+                    var circle201= L.circle([59.4372394306466, 24.7280186518676], { color: perc2color(60.126970895435136), fillColor: perc2color(60.126970895435136), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle201.bindPopup('<p><strong>Price to rent ratio: 15.99</strong><br /> Selling Price/m&sup2;: 2257.14<br /> Median Nearby Rent/m&sup2;: 11.77</p>')
+                    var circle202= L.circle([59.4470864, 24.7298059], { color: perc2color(51.237540647532875), fillColor: perc2color(51.237540647532875), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle202.bindPopup('<p><strong>Price to rent ratio: 19.55</strong><br /> Selling Price/m&sup2;: 2737.28<br /> Median Nearby Rent/m&sup2;: 11.67</p>')
+                    var circle203= L.circle([59.4418317, 24.7385733], { color: perc2color(44.11648288200312), fillColor: perc2color(44.11648288200312), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle203.bindPopup('<p><strong>Price to rent ratio: 22.41</strong><br /> Selling Price/m&sup2;: 3086.42<br /> Median Nearby Rent/m&sup2;: 11.48</p>')
+                    var circle204= L.circle([59.443086111111, 24.739038888889], { color: perc2color(51.56758094160893), fillColor: perc2color(51.56758094160893), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle204.bindPopup('<p><strong>Price to rent ratio: 19.42</strong><br /> Selling Price/m&sup2;: 2718.75<br /> Median Nearby Rent/m&sup2;: 11.67</p>')
+                    var circle205= L.circle([59.446911, 24.7434696], { color: perc2color(40.61419546804107), fillColor: perc2color(40.61419546804107), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle205.bindPopup('<p><strong>Price to rent ratio: 23.81</strong><br /> Selling Price/m&sup2;: 3343.75<br /> Median Nearby Rent/m&sup2;: 11.70</p>')
+                    var circle206= L.circle([59.447012, 24.740994], { color: perc2color(51.637083402953614), fillColor: perc2color(51.637083402953614), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle206.bindPopup('<p><strong>Price to rent ratio: 19.39</strong><br /> Selling Price/m&sup2;: 2752.38<br /> Median Nearby Rent/m&sup2;: 11.83</p>')
+                    var circle207= L.circle([59.4455827, 24.7473193000001], { color: perc2color(49.833059630882346), fillColor: perc2color(49.833059630882346), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle207.bindPopup('<p><strong>Price to rent ratio: 20.12</strong><br /> Selling Price/m&sup2;: 2725.27<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle208= L.circle([59.4477953, 24.7443654], { color: perc2color(34.9861830520674), fillColor: perc2color(34.9861830520674), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle208.bindPopup('<p><strong>Price to rent ratio: 26.07</strong><br /> Selling Price/m&sup2;: 3700.00<br /> Median Nearby Rent/m&sup2;: 11.83</p>')
+                    var circle209= L.circle([59.4454691, 24.7345121], { color: perc2color(56.14274222143866), fillColor: perc2color(56.14274222143866), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle209.bindPopup('<p><strong>Price to rent ratio: 17.59</strong><br /> Selling Price/m&sup2;: 2572.05<br /> Median Nearby Rent/m&sup2;: 12.19</p>')
+                    var circle210= L.circle([59.4468124, 24.7339255], { color: perc2color(61.781876314697136), fillColor: perc2color(61.781876314697136), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle210.bindPopup('<p><strong>Price to rent ratio: 15.32</strong><br /> Selling Price/m&sup2;: 2163.46<br /> Median Nearby Rent/m&sup2;: 11.77</p>')
+                    var circle211= L.circle([59.4452569, 24.740818], { color: perc2color(57.89607170032917), fillColor: perc2color(57.89607170032917), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle211.bindPopup('<p><strong>Price to rent ratio: 16.88</strong><br /> Selling Price/m&sup2;: 2370.68<br /> Median Nearby Rent/m&sup2;: 11.70</p>')
+                    var circle212= L.circle([59.4418277, 24.7330765], { color: perc2color(42.65061707697596), fillColor: perc2color(42.65061707697596), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle212.bindPopup('<p><strong>Price to rent ratio: 23.00</strong><br /> Selling Price/m&sup2;: 3246.45<br /> Median Nearby Rent/m&sup2;: 11.77</p>')
+                    var circle213= L.circle([59.4480801, 24.7351868000001], { color: perc2color(57.54790439266896), fillColor: perc2color(57.54790439266896), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle213.bindPopup('<p><strong>Price to rent ratio: 17.02</strong><br /> Selling Price/m&sup2;: 2386.67<br /> Median Nearby Rent/m&sup2;: 11.68</p>')
+                    var circle214= L.circle([59.4451632, 24.738438], { color: perc2color(48.74427304743409), fillColor: perc2color(48.74427304743409), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle214.bindPopup('<p><strong>Price to rent ratio: 20.55</strong><br /> Selling Price/m&sup2;: 2901.50<br /> Median Nearby Rent/m&sup2;: 11.77</p>')
+                    var circle215= L.circle([59.44537, 24.7445419000001], { color: perc2color(63.304647319638526), fillColor: perc2color(63.304647319638526), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle215.bindPopup('<p><strong>Price to rent ratio: 14.71</strong><br /> Selling Price/m&sup2;: 2026.67<br /> Median Nearby Rent/m&sup2;: 11.48</p>')
+                    var circle216= L.circle([59.4485868, 24.7311596], { color: perc2color(53.818449701235984), fillColor: perc2color(53.818449701235984), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle216.bindPopup('<p><strong>Price to rent ratio: 18.52</strong><br /> Selling Price/m&sup2;: 2508.77<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle217= L.circle([59.4426992, 24.7311387], { color: perc2color(72.63127793678467), fillColor: perc2color(72.63127793678467), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle217.bindPopup('<p><strong>Price to rent ratio: 10.97</strong><br /> Selling Price/m&sup2;: 1549.30<br /> Median Nearby Rent/m&sup2;: 11.77</p>')
+                    var circle218= L.circle([59.4431871, 24.7423941], { color: perc2color(49.468659831177085), fillColor: perc2color(49.468659831177085), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle218.bindPopup('<p><strong>Price to rent ratio: 20.26</strong><br /> Selling Price/m&sup2;: 2745.07<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle219= L.circle([59.4477988, 24.7389882], { color: perc2color(48.28522733858773), fillColor: perc2color(48.28522733858773), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle219.bindPopup('<p><strong>Price to rent ratio: 20.74</strong><br /> Selling Price/m&sup2;: 2927.48<br /> Median Nearby Rent/m&sup2;: 11.77</p>')
+                    var circle220= L.circle([59.447941694578, 24.727648014819], { color: perc2color(58.807873229096224), fillColor: perc2color(58.807873229096224), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle220.bindPopup('<p><strong>Price to rent ratio: 16.52</strong><br /> Selling Price/m&sup2;: 2237.73<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle221= L.circle([59.449083442169, 24.737304380951], { color: perc2color(69.52830258879207), fillColor: perc2color(69.52830258879207), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle221.bindPopup('<p><strong>Price to rent ratio: 12.22</strong><br /> Selling Price/m&sup2;: 1710.53<br /> Median Nearby Rent/m&sup2;: 11.67</p>')
+                    var circle222= L.circle([59.4481163, 24.7334954], { color: perc2color(79.10816206204117), fillColor: perc2color(79.10816206204117), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle222.bindPopup('<p><strong>Price to rent ratio: 8.38</strong><br /> Selling Price/m&sup2;: 1153.85<br /> Median Nearby Rent/m&sup2;: 11.48</p>')
+                    var circle223= L.circle([59.4462999, 24.7309881], { color: perc2color(60.535305454262264), fillColor: perc2color(60.535305454262264), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle223.bindPopup('<p><strong>Price to rent ratio: 15.82</strong><br /> Selling Price/m&sup2;: 2218.71<br /> Median Nearby Rent/m&sup2;: 11.68</p>')
+                    var circle224= L.circle([59.4328329, 24.7607151], { color: perc2color(29.040011310617857), fillColor: perc2color(29.040011310617857), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle224.bindPopup('<p><strong>Price to rent ratio: 28.45</strong><br /> Selling Price/m&sup2;: 3854.84<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle225= L.circle([59.4336135, 24.7648553], { color: perc2color(49.61701244624036), fillColor: perc2color(49.61701244624036), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle225.bindPopup('<p><strong>Price to rent ratio: 20.20</strong><br /> Selling Price/m&sup2;: 2828.25<br /> Median Nearby Rent/m&sup2;: 11.67</p>')
+                    var circle226= L.circle([59.4299013, 24.7540867], { color: perc2color(61.52928449222158), fillColor: perc2color(61.52928449222158), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle226.bindPopup('<p><strong>Price to rent ratio: 15.43</strong><br /> Selling Price/m&sup2;: 2089.89<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle227= L.circle([59.429643, 24.7642697], { color: perc2color(70.75276804159606), fillColor: perc2color(70.75276804159606), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle227.bindPopup('<p><strong>Price to rent ratio: 11.73</strong><br /> Selling Price/m&sup2;: 1641.79<br /> Median Nearby Rent/m&sup2;: 11.67</p>')
+                    var circle228= L.circle([59.430535, 24.7451348], { color: perc2color(41.97092227396462), fillColor: perc2color(41.97092227396462), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle228.bindPopup('<p><strong>Price to rent ratio: 23.27</strong><br /> Selling Price/m&sup2;: 3204.92<br /> Median Nearby Rent/m&sup2;: 11.48</p>')
+                    var circle229= L.circle([59.4291156, 24.7425297], { color: perc2color(39.21470009479595), fillColor: perc2color(39.21470009479595), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle229.bindPopup('<p><strong>Price to rent ratio: 24.37</strong><br /> Selling Price/m&sup2;: 3357.14<br /> Median Nearby Rent/m&sup2;: 11.48</p>')
+                    var circle230= L.circle([59.430909, 24.7433766], { color: perc2color(39.96102638521724), fillColor: perc2color(39.96102638521724), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle230.bindPopup('<p><strong>Price to rent ratio: 24.07</strong><br /> Selling Price/m&sup2;: 3370.28<br /> Median Nearby Rent/m&sup2;: 11.67</p>')
+                    var circle231= L.circle([59.4323108, 24.7662301], { color: perc2color(63.078103744258804), fillColor: perc2color(63.078103744258804), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle231.bindPopup('<p><strong>Price to rent ratio: 14.80</strong><br /> Selling Price/m&sup2;: 2075.76<br /> Median Nearby Rent/m&sup2;: 11.68</p>')
+                    var circle232= L.circle([59.4308212, 24.7425317], { color: perc2color(44.188249082933595), fillColor: perc2color(44.188249082933595), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle232.bindPopup('<p><strong>Price to rent ratio: 22.38</strong><br /> Selling Price/m&sup2;: 3082.46<br /> Median Nearby Rent/m&sup2;: 11.48</p>')
+                    var circle233= L.circle([59.428514302122, 24.7437438777899], { color: perc2color(61.20087240093359), fillColor: perc2color(61.20087240093359), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle233.bindPopup('<p><strong>Price to rent ratio: 15.56</strong><br /> Selling Price/m&sup2;: 2142.86<br /> Median Nearby Rent/m&sup2;: 11.48</p>')
+                    var circle234= L.circle([59.4315226, 24.7472203], { color: perc2color(45.100039247538646), fillColor: perc2color(45.100039247538646), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle234.bindPopup('<p><strong>Price to rent ratio: 22.01</strong><br /> Selling Price/m&sup2;: 2982.39<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle235= L.circle([59.4291253, 24.7565417000001], { color: perc2color(65.70993251651676), fillColor: perc2color(65.70993251651676), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle235.bindPopup('<p><strong>Price to rent ratio: 13.75</strong><br /> Selling Price/m&sup2;: 1862.78<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle236= L.circle([59.4290173, 24.7578004], { color: perc2color(63.18393892266365), fillColor: perc2color(63.18393892266365), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle236.bindPopup('<p><strong>Price to rent ratio: 14.76</strong><br /> Selling Price/m&sup2;: 2000.00<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle237= L.circle([59.4287378, 24.7671517], { color: perc2color(70.80324081917851), fillColor: perc2color(70.80324081917851), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle237.bindPopup('<p><strong>Price to rent ratio: 11.71</strong><br /> Selling Price/m&sup2;: 1643.94<br /> Median Nearby Rent/m&sup2;: 11.70</p>')
+                    var circle238= L.circle([59.4348221, 24.7462322], { color: perc2color(43.98830110721664), fillColor: perc2color(43.98830110721664), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle238.bindPopup('<p><strong>Price to rent ratio: 22.46</strong><br /> Selling Price/m&sup2;: 3042.79<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle239= L.circle([59.431136042217, 24.757428882569], { color: perc2color(60.9805534490958), fillColor: perc2color(60.9805534490958), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle239.bindPopup('<p><strong>Price to rent ratio: 15.65</strong><br /> Selling Price/m&sup2;: 2119.70<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle240= L.circle([59.4288324, 24.7513474], { color: perc2color(55.22370950053687), fillColor: perc2color(55.22370950053687), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle240.bindPopup('<p><strong>Price to rent ratio: 17.95</strong><br /> Selling Price/m&sup2;: 2432.43<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle241= L.circle([59.431687, 24.7533202], { color: perc2color(51.453331226453535), fillColor: perc2color(51.453331226453535), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle241.bindPopup('<p><strong>Price to rent ratio: 19.47</strong><br /> Selling Price/m&sup2;: 2637.25<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle242= L.circle([59.430455, 24.7492896], { color: perc2color(44.05684469107876), fillColor: perc2color(44.05684469107876), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle242.bindPopup('<p><strong>Price to rent ratio: 22.43</strong><br /> Selling Price/m&sup2;: 3039.06<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle243= L.circle([59.4292914, 24.7624158], { color: perc2color(60.993678604560074), fillColor: perc2color(60.993678604560074), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle243.bindPopup('<p><strong>Price to rent ratio: 15.64</strong><br /> Selling Price/m&sup2;: 2189.62<br /> Median Nearby Rent/m&sup2;: 11.67</p>')
+                    var circle244= L.circle([59.4323288599, 24.7630762507], { color: perc2color(64.52836272005308), fillColor: perc2color(64.52836272005308), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle244.bindPopup('<p><strong>Price to rent ratio: 14.22</strong><br /> Selling Price/m&sup2;: 1957.14<br /> Median Nearby Rent/m&sup2;: 11.47</p>')
+                    var circle245= L.circle([59.433108, 24.7542296], { color: perc2color(51.97905076869173), fillColor: perc2color(51.97905076869173), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle245.bindPopup('<p><strong>Price to rent ratio: 19.25</strong><br /> Selling Price/m&sup2;: 2608.70<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle246= L.circle([59.4294422, 24.7490668], { color: perc2color(53.143194992481014), fillColor: perc2color(53.143194992481014), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle246.bindPopup('<p><strong>Price to rent ratio: 18.79</strong><br /> Selling Price/m&sup2;: 2545.45<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle247= L.circle([59.4308088, 24.7503031], { color: perc2color(44.65480291992529), fillColor: perc2color(44.65480291992529), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle247.bindPopup('<p><strong>Price to rent ratio: 22.19</strong><br /> Selling Price/m&sup2;: 3006.58<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle248= L.circle([59.4348459, 24.7656336], { color: perc2color(64.42803982633954), fillColor: perc2color(64.42803982633954), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle248.bindPopup('<p><strong>Price to rent ratio: 14.26</strong><br /> Selling Price/m&sup2;: 2002.90<br /> Median Nearby Rent/m&sup2;: 11.70</p>')
+                    var circle249= L.circle([59.4280404, 24.7469298], { color: perc2color(81.00053725434752), fillColor: perc2color(81.00053725434752), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle249.bindPopup('<p><strong>Price to rent ratio: 7.62</strong><br /> Selling Price/m&sup2;: 1066.53<br /> Median Nearby Rent/m&sup2;: 11.67</p>')
+                    var circle250= L.circle([59.434720357586, 24.753770429688], { color: perc2color(55.28972582627327), fillColor: perc2color(55.28972582627327), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle250.bindPopup('<p><strong>Price to rent ratio: 17.93</strong><br /> Selling Price/m&sup2;: 2428.85<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle251= L.circle([59.4279757, 24.753571], { color: perc2color(63.772995899901034), fillColor: perc2color(63.772995899901034), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle251.bindPopup('<p><strong>Price to rent ratio: 14.53</strong><br /> Selling Price/m&sup2;: 1968.00<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle252= L.circle([59.4320958108934, 24.7650423645973], { color: perc2color(57.17898487776974), fillColor: perc2color(57.17898487776974), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle252.bindPopup('<p><strong>Price to rent ratio: 17.17</strong><br /> Selling Price/m&sup2;: 2407.41<br /> Median Nearby Rent/m&sup2;: 11.68</p>')
+                    var circle253= L.circle([59.4289501, 24.7476379], { color: perc2color(59.37408014314421), fillColor: perc2color(59.37408014314421), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle253.bindPopup('<p><strong>Price to rent ratio: 16.29</strong><br /> Selling Price/m&sup2;: 2243.75<br /> Median Nearby Rent/m&sup2;: 11.48</p>')
+                    var circle254= L.circle([59.4297304, 24.765659], { color: perc2color(57.812431847033515), fillColor: perc2color(57.812431847033515), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle254.bindPopup('<p><strong>Price to rent ratio: 16.92</strong><br /> Selling Price/m&sup2;: 2371.79<br /> Median Nearby Rent/m&sup2;: 11.68</p>')
+                    var circle255= L.circle([59.430138317769, 24.752191174831], { color: perc2color(55.25432576754505), fillColor: perc2color(55.25432576754505), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle255.bindPopup('<p><strong>Price to rent ratio: 17.94</strong><br /> Selling Price/m&sup2;: 2430.77<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle256= L.circle([59.4319009, 24.7519385000001], { color: perc2color(35.352749893962965), fillColor: perc2color(35.352749893962965), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle256.bindPopup('<p><strong>Price to rent ratio: 25.92</strong><br /> Selling Price/m&sup2;: 3511.90<br /> Median Nearby Rent/m&sup2;: 11.29</p>')
+                    var circle257= L.circle([59.439697, 24.768336], { color: perc2color(60.12142897396679), fillColor: perc2color(60.12142897396679), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle257.bindPopup('<p><strong>Price to rent ratio: 15.99</strong><br /> Selling Price/m&sup2;: 2245.38<br /> Median Nearby Rent/m&sup2;: 11.70</p>')
+                    var circle258= L.circle([59.440613, 24.7828918], { color: perc2color(60.78614449314294), fillColor: perc2color(60.78614449314294), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle258.bindPopup('<p><strong>Price to rent ratio: 15.72</strong><br /> Selling Price/m&sup2;: 2120.00<br /> Median Nearby Rent/m&sup2;: 11.24</p>')
+                    var circle259= L.circle([59.4376283, 24.7733297], { color: perc2color(51.819004408570365), fillColor: perc2color(51.819004408570365), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle259.bindPopup('<p><strong>Price to rent ratio: 19.32</strong><br /> Selling Price/m&sup2;: 2712.86<br /> Median Nearby Rent/m&sup2;: 11.70</p>')
+                    var circle260= L.circle([59.4345737, 24.7758354], { color: perc2color(57.66454273748636), fillColor: perc2color(57.66454273748636), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle260.bindPopup('<p><strong>Price to rent ratio: 16.97</strong><br /> Selling Price/m&sup2;: 2383.72<br /> Median Nearby Rent/m&sup2;: 11.70</p>')
+                    var circle261= L.circle([59.4359664, 24.7788856], { color: perc2color(53.06230724684897), fillColor: perc2color(53.06230724684897), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle261.bindPopup('<p><strong>Price to rent ratio: 18.82</strong><br /> Selling Price/m&sup2;: 2586.21<br /> Median Nearby Rent/m&sup2;: 11.45</p>')
+                    var circle262= L.circle([59.440486, 24.77187], { color: perc2color(60.02528822796036), fillColor: perc2color(60.02528822796036), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle262.bindPopup('<p><strong>Price to rent ratio: 16.03</strong><br /> Selling Price/m&sup2;: 2275.00<br /> Median Nearby Rent/m&sup2;: 11.83</p>')
+                    var circle263= L.circle([59.434007, 24.7724315], { color: perc2color(57.03232698435325), fillColor: perc2color(57.03232698435325), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle263.bindPopup('<p><strong>Price to rent ratio: 17.23</strong><br /> Selling Price/m&sup2;: 2419.32<br /> Median Nearby Rent/m&sup2;: 11.70</p>')
+                    var circle264= L.circle([59.4349052, 24.7692766], { color: perc2color(58.47237857908096), fillColor: perc2color(58.47237857908096), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle264.bindPopup('<p><strong>Price to rent ratio: 16.65</strong><br /> Selling Price/m&sup2;: 2338.24<br /> Median Nearby Rent/m&sup2;: 11.70</p>')
+                    var circle265= L.circle([59.4389059, 24.7636448], { color: perc2color(49.48878512868512), fillColor: perc2color(49.48878512868512), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle265.bindPopup('<p><strong>Price to rent ratio: 20.25</strong><br /> Selling Price/m&sup2;: 2835.44<br /> Median Nearby Rent/m&sup2;: 11.67</p>')
+                    var circle266= L.circle([59.4375856, 24.7668937999999], { color: perc2color(64.02989244012426), fillColor: perc2color(64.02989244012426), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle266.bindPopup('<p><strong>Price to rent ratio: 14.42</strong><br /> Selling Price/m&sup2;: 2025.32<br /> Median Nearby Rent/m&sup2;: 11.70</p>')
+                    var circle267= L.circle([59.4405516, 24.7798524], { color: perc2color(53.33175356393984), fillColor: perc2color(53.33175356393984), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle267.bindPopup('<p><strong>Price to rent ratio: 18.71</strong><br /> Selling Price/m&sup2;: 2619.72<br /> Median Nearby Rent/m&sup2;: 11.67</p>')
+                    var circle268= L.circle([59.4408282, 24.7644494], { color: perc2color(54.64454683520371), fillColor: perc2color(54.64454683520371), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle268.bindPopup('<p><strong>Price to rent ratio: 18.19</strong><br /> Selling Price/m&sup2;: 2553.76<br /> Median Nearby Rent/m&sup2;: 11.70</p>')
+                    var circle269= L.circle([59.4346906, 24.779128], { color: perc2color(53.30535031612095), fillColor: perc2color(53.30535031612095), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle269.bindPopup('<p><strong>Price to rent ratio: 18.72</strong><br /> Selling Price/m&sup2;: 2572.82<br /> Median Nearby Rent/m&sup2;: 11.45</p>')
+                    var circle270= L.circle([59.4366084, 24.7757008], { color: perc2color(54.881955606107326), fillColor: perc2color(54.881955606107326), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle270.bindPopup('<p><strong>Price to rent ratio: 18.09</strong><br /> Selling Price/m&sup2;: 2554.05<br /> Median Nearby Rent/m&sup2;: 11.77</p>')
+                    var circle271= L.circle([59.435270899731, 24.774261743074], { color: perc2color(52.87412018063306), fillColor: perc2color(52.87412018063306), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle271.bindPopup('<p><strong>Price to rent ratio: 18.90</strong><br /> Selling Price/m&sup2;: 2653.45<br /> Median Nearby Rent/m&sup2;: 11.70</p>')
+                    var circle272= L.circle([59.4378629382412, 24.7630291884066], { color: perc2color(57.86129775609099), fillColor: perc2color(57.86129775609099), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle272.bindPopup('<p><strong>Price to rent ratio: 16.90</strong><br /> Selling Price/m&sup2;: 2369.05<br /> Median Nearby Rent/m&sup2;: 11.68</p>')
+                    var circle273= L.circle([59.4370906, 24.7641171], { color: perc2color(66.40197275025011), fillColor: perc2color(66.40197275025011), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle273.bindPopup('<p><strong>Price to rent ratio: 13.47</strong><br /> Selling Price/m&sup2;: 1888.89<br /> Median Nearby Rent/m&sup2;: 11.68</p>')
+                    var circle274= L.circle([59.439101, 24.7701714], { color: perc2color(69.00246005938075), fillColor: perc2color(69.00246005938075), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle274.bindPopup('<p><strong>Price to rent ratio: 12.43</strong><br /> Selling Price/m&sup2;: 1745.33<br /> Median Nearby Rent/m&sup2;: 11.70</p>')
+                    var circle275= L.circle([59.4366577, 24.7871063], { color: perc2color(47.04425279230878), fillColor: perc2color(47.04425279230878), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle275.bindPopup('<p><strong>Price to rent ratio: 21.23</strong><br /> Selling Price/m&sup2;: 2860.00<br /> Median Nearby Rent/m&sup2;: 11.22</p>')
+                    var circle276= L.circle([59.436482, 24.7650549], { color: perc2color(65.99507622646422), fillColor: perc2color(65.99507622646422), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle276.bindPopup('<p><strong>Price to rent ratio: 13.63</strong><br /> Selling Price/m&sup2;: 1911.76<br /> Median Nearby Rent/m&sup2;: 11.68</p>')
+                    var circle277= L.circle([59.435123742652, 24.770628558814], { color: perc2color(63.184501240312066), fillColor: perc2color(63.184501240312066), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle277.bindPopup('<p><strong>Price to rent ratio: 14.76</strong><br /> Selling Price/m&sup2;: 2072.92<br /> Median Nearby Rent/m&sup2;: 11.70</p>')
+                    var circle278= L.circle([59.4398239, 24.778402], { color: perc2color(51.182177076422796), fillColor: perc2color(51.182177076422796), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle278.bindPopup('<p><strong>Price to rent ratio: 19.57</strong><br /> Selling Price/m&sup2;: 2740.38<br /> Median Nearby Rent/m&sup2;: 11.67</p>')
+                    var circle279= L.circle([59.4355141, 24.7633767], { color: perc2color(59.56910517782582), fillColor: perc2color(59.56910517782582), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle279.bindPopup('<p><strong>Price to rent ratio: 16.21</strong><br /> Selling Price/m&sup2;: 2230.77<br /> Median Nearby Rent/m&sup2;: 11.47</p>')
+                    var circle280= L.circle([59.4367922, 24.7779354], { color: perc2color(59.29241269449848), fillColor: perc2color(59.29241269449848), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle280.bindPopup('<p><strong>Price to rent ratio: 16.32</strong><br /> Selling Price/m&sup2;: 2288.59<br /> Median Nearby Rent/m&sup2;: 11.68</p>')
+                    var circle281= L.circle([59.4352898, 24.7816119], { color: perc2color(47.60195439082935), fillColor: perc2color(47.60195439082935), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle281.bindPopup('<p><strong>Price to rent ratio: 21.01</strong><br /> Selling Price/m&sup2;: 2831.33<br /> Median Nearby Rent/m&sup2;: 11.23</p>')
+                    var circle282= L.circle([59.4385184, 24.7793435], { color: perc2color(43.350770535840525), fillColor: perc2color(43.350770535840525), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle282.bindPopup('<p><strong>Price to rent ratio: 22.71</strong><br /> Selling Price/m&sup2;: 3180.00<br /> Median Nearby Rent/m&sup2;: 11.67</p>')
+                    var circle283= L.circle([59.4379238, 24.77464], { color: perc2color(45.03336335656425), fillColor: perc2color(45.03336335656425), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle283.bindPopup('<p><strong>Price to rent ratio: 22.04</strong><br /> Selling Price/m&sup2;: 3128.21<br /> Median Nearby Rent/m&sup2;: 11.83</p>')
+                    var circle284= L.circle([59.440169889172, 24.786180787033], { color: perc2color(49.55556660168388), fillColor: perc2color(49.55556660168388), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle284.bindPopup('<p><strong>Price to rent ratio: 20.23</strong><br /> Selling Price/m&sup2;: 2782.34<br /> Median Nearby Rent/m&sup2;: 11.46</p>')
+                    var circle285= L.circle([59.4359442, 24.7681081], { color: perc2color(50.48027030562106), fillColor: perc2color(50.48027030562106), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle285.bindPopup('<p><strong>Price to rent ratio: 19.86</strong><br /> Selling Price/m&sup2;: 2788.24<br /> Median Nearby Rent/m&sup2;: 11.70</p>')
+                    var circle286= L.circle([59.4348459, 24.7656336], { color: perc2color(64.42803982633954), fillColor: perc2color(64.42803982633954), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle286.bindPopup('<p><strong>Price to rent ratio: 14.26</strong><br /> Selling Price/m&sup2;: 2002.90<br /> Median Nearby Rent/m&sup2;: 11.70</p>')
+                    var circle287= L.circle([59.4365864, 24.7690619], { color: perc2color(66.04659883824229), fillColor: perc2color(66.04659883824229), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle287.bindPopup('<p><strong>Price to rent ratio: 13.61</strong><br /> Selling Price/m&sup2;: 1911.76<br /> Median Nearby Rent/m&sup2;: 11.70</p>')
+                    var circle288= L.circle([59.4407873, 24.7734882], { color: perc2color(63.56434681181959), fillColor: perc2color(63.56434681181959), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle288.bindPopup('<p><strong>Price to rent ratio: 14.61</strong><br /> Selling Price/m&sup2;: 2125.00<br /> Median Nearby Rent/m&sup2;: 12.12</p>')
+                    var circle289= L.circle([59.438344, 24.7660125], { color: perc2color(78.95082594644308), fillColor: perc2color(78.95082594644308), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle289.bindPopup('<p><strong>Price to rent ratio: 8.44</strong><br /> Selling Price/m&sup2;: 1185.19<br /> Median Nearby Rent/m&sup2;: 11.70</p>')
+                    var circle290= L.circle([59.4362311, 24.7726617], { color: perc2color(65.84569113906028), fillColor: perc2color(65.84569113906028), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle290.bindPopup('<p><strong>Price to rent ratio: 13.69</strong><br /> Selling Price/m&sup2;: 1923.08<br /> Median Nearby Rent/m&sup2;: 11.70</p>')
+                    var circle291= L.circle([59.4513082, 24.8368366], { color: perc2color(70.73024176445638), fillColor: perc2color(70.73024176445638), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle291.bindPopup('<p><strong>Price to rent ratio: 11.74</strong><br /> Selling Price/m&sup2;: 1920.45<br /> Median Nearby Rent/m&sup2;: 13.64</p>')
+                    var circle292= L.circle([59.4550276, 24.8218604], { color: perc2color(67.91533567521125), fillColor: perc2color(67.91533567521125), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle292.bindPopup('<p><strong>Price to rent ratio: 12.86</strong><br /> Selling Price/m&sup2;: 1929.72<br /> Median Nearby Rent/m&sup2;: 12.50</p>')
+                    var circle293= L.circle([59.4514596, 24.8347364], { color: perc2color(72.18506998444789), fillColor: perc2color(72.18506998444789), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle293.bindPopup('<p><strong>Price to rent ratio: 11.15</strong><br /> Selling Price/m&sup2;: 1825.00<br /> Median Nearby Rent/m&sup2;: 13.64</p>')
+                    var circle294= L.circle([59.4429948, 24.8033147], { color: perc2color(58.88284721877257), fillColor: perc2color(58.88284721877257), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle294.bindPopup('<p><strong>Price to rent ratio: 16.49</strong><br /> Selling Price/m&sup2;: 2142.86<br /> Median Nearby Rent/m&sup2;: 10.83</p>')
+                    var circle295= L.circle([59.4466442, 24.8039286], { color: perc2color(22.828363083504087), fillColor: perc2color(22.828363083504087), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle295.bindPopup('<p><strong>Price to rent ratio: 30.94</strong><br /> Selling Price/m&sup2;: 3905.41<br /> Median Nearby Rent/m&sup2;: 10.52</p>')
+                    var circle296= L.circle([59.4458156, 24.8157003], { color: perc2color(56.8355975990643), fillColor: perc2color(56.8355975990643), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle296.bindPopup('<p><strong>Price to rent ratio: 17.31</strong><br /> Selling Price/m&sup2;: 2596.10<br /> Median Nearby Rent/m&sup2;: 12.50</p>')
+                    var circle297= L.circle([59.4436142, 24.8132686], { color: perc2color(65.81309087031362), fillColor: perc2color(65.81309087031362), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle297.bindPopup('<p><strong>Price to rent ratio: 13.71</strong><br /> Selling Price/m&sup2;: 1918.92<br /> Median Nearby Rent/m&sup2;: 11.67</p>')
+                    var circle298= L.circle([59.447588132591, 24.808441277345], { color: perc2color(49.76958637068184), fillColor: perc2color(49.76958637068184), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle298.bindPopup('<p><strong>Price to rent ratio: 20.14</strong><br /> Selling Price/m&sup2;: 2819.44<br /> Median Nearby Rent/m&sup2;: 11.67</p>')
+                    var circle299= L.circle([59.4467505, 24.8056309], { color: perc2color(47.973113949511415), fillColor: perc2color(47.973113949511415), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle299.bindPopup('<p><strong>Price to rent ratio: 20.86</strong><br /> Selling Price/m&sup2;: 2632.91<br /> Median Nearby Rent/m&sup2;: 10.52</p>')
+                    var circle300= L.circle([59.4472222, 24.8251096], { color: perc2color(59.28899946424246), fillColor: perc2color(59.28899946424246), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle300.bindPopup('<p><strong>Price to rent ratio: 16.32</strong><br /> Selling Price/m&sup2;: 2448.55<br /> Median Nearby Rent/m&sup2;: 12.50</p>')
+                    var circle301= L.circle([59.4491818, 24.8066319], { color: perc2color(49.57684731586626), fillColor: perc2color(49.57684731586626), fillOpacity: 0.5,radius: 10}).addTo(mymap);
+                        circle301.bindPopup('<p><strong>Price to rent ratio: 20.22</strong><br /> Selling Price/m&sup2;: 2627.85<br /> Median Nearby Rent/m&sup2;: 10.83</p>')
+                                
+                </script>
+                </body>
+                </html>
