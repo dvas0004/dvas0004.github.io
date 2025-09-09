@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swiss Roll 3D Visualization</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #1a1a1a;
+            color: white;
+            overflow: hidden;
+        }
+        
+        #container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+        
+        #controls {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        button {
+            padding: 12px 24px;
+            font-size: 14px;
+            border: none;
+            border-radius: 6px;
+            background: #4a90e2;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        
+        button:hover {
+            background: #357abd;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+        
+        button.active {
+            background: #e74c3c;
+        }
+        
+        #info {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            z-index: 100;
+            background: rgba(0,0,0,0.7);
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 12px;
+            max-width: 300px;
+        }
+        
+        #canvas-container {
+            width: 100%;
+            height: 100%;
+        }
+        
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="controls">
+            <button id="toggleDimension">Switch to 2D</button>
+            <button id="toggleRotation">Start Auto-Rotation</button>
+            <button id="resetView">Reset View</button>
+        </div>
+        
+        <div id="canvas-container"></div>
+        
+        <div id="info">
+            <strong>Swiss Roll Visualization</strong><br>
+            • Mouse: Click and drag to rotate<br>
+            • Wheel: Zoom in/out<br>
+            • Points are colored by their position along the roll<br>
+            • 3D view shows the rolled manifold<br>
+            • 2D view shows the "unrolled" structure
+        </div>
+    </div>
+
+    <script>
+        class SwissRollVisualizer {
+            constructor() {
+                this.scene = new THREE.Scene();
+                this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+                this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+                
+                this.is3D = true;
+                this.isRotating = false;
+                this.rotationSpeed = 0.01;
+                
+                this.points = [];
+                this.pointsGeometry = new THREE.BufferGeometry();
+                this.pointsMaterial = new THREE.PointsMaterial({ 
+                    size: 0.05, 
+                    vertexColors: true,
+                    sizeAttenuation: true
+                });
+                
+                this.mouseDown = false;
+                this.mouseX = 0;
+                this.mouseY = 0;
+                this.targetRotationX = 0;
+                this.targetRotationY = 0;
+                this.currentRotationX = 0;
+                this.currentRotationY = 0;
+                
+                this.init();
+                this.generateSwissRoll();
+                this.setupControls();
+                this.animate();
+            }
+            
+            init() {
+                this.renderer.setSize(window.innerWidth, window.innerHeight);
+                this.renderer.setClearColor(0x1a1a1a, 1);
+                document.getElementById('canvas-container').appendChild(this.renderer.domElement);
+                
+                this.camera.position.set(5, 3, 8);
+                this.camera.lookAt(0, 0, 0);
+                
+                // Add some ambient lighting
+                const ambientLight = new THREE.AmbientLight(0x404040, 0.6);
+                this.scene.add(ambientLight);
+                
+                const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+                directionalLight.position.set(10, 10, 5);
+                this.scene.add(directionalLight);
+            }
+            
+            generateSwissRoll() {
+                const numPoints = 2000;
+                const positions = [];
+                const colors = [];
+                
+                for (let i = 0; i < numPoints; i++) {
+                    // Generate parameter t (angle) and width w
+                    const t = 1.5 * Math.PI * (1 + 2 * Math.random()); // 1.5π to 4.5π
+                    const w = 21 * Math.random(); // width parameter
+                    
+                    // Swiss roll equations
+                    const x = t * Math.cos(t);
+                    const y = w;
+                    const z = t * Math.sin(t);
+                    
+                    positions.push(x * 0.1, y * 0.1, z * 0.1); // Scale down for better viewing
+                    
+                    // Color based on t parameter (position along the roll)
+                    const normalizedT = (t - 1.5 * Math.PI) / (3 * Math.PI);
+                    const hue = normalizedT * 360;
+                    const color = new THREE.Color().setHSL(hue / 360, 0.8, 0.6);
+                    colors.push(color.r, color.g, color.b);
+                    
+                    // Store original 2D coordinates for transition
+                    this.points.push({
+                        original3D: { x: x * 0.1, y: y * 0.1, z: z * 0.1 },
+                        unrolled2D: { x: t * 0.1, y: w * 0.1, z: 0 },
+                        t: t,
+                        w: w
+                    });
+                }
+                
+                this.pointsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+                this.pointsGeometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+                
+                this.pointsMesh = new THREE.Points(this.pointsGeometry, this.pointsMaterial);
+                this.scene.add(this.pointsMesh);
+            }
+            
+            setupControls() {
+                const canvas = this.renderer.domElement;
+                
+                // Mouse controls for rotation
+                canvas.addEventListener('mousedown', (e) => {
+                    this.mouseDown = true;
+                    this.mouseX = e.clientX;
+                    this.mouseY = e.clientY;
+                });
+                
+                canvas.addEventListener('mousemove', (e) => {
+                    if (!this.mouseDown) return;
+                    
+                    const deltaX = e.clientX - this.mouseX;
+                    const deltaY = e.clientY - this.mouseY;
+                    
+                    this.targetRotationY += deltaX * 0.01;
+                    this.targetRotationX += deltaY * 0.01;
+                    
+                    this.mouseX = e.clientX;
+                    this.mouseY = e.clientY;
+                });
+                
+                canvas.addEventListener('mouseup', () => {
+                    this.mouseDown = false;
+                });
+                
+                // Zoom with mouse wheel
+                canvas.addEventListener('wheel', (e) => {
+                    const zoomSpeed = 0.1;
+                    const direction = e.deltaY > 0 ? 1 : -1;
+                    
+                    this.camera.position.multiplyScalar(1 + direction * zoomSpeed);
+                    this.camera.position.clampLength(2, 20);
+                });
+                
+                // Button controls
+                document.getElementById('toggleDimension').addEventListener('click', () => {
+                    this.toggleDimension();
+                });
+                
+                document.getElementById('toggleRotation').addEventListener('click', () => {
+                    this.toggleRotation();
+                });
+                
+                document.getElementById('resetView').addEventListener('click', () => {
+                    this.resetView();
+                });
+                
+                // Handle window resize
+                window.addEventListener('resize', () => {
+                    this.camera.aspect = window.innerWidth / window.innerHeight;
+                    this.camera.updateProjectionMatrix();
+                    this.renderer.setSize(window.innerWidth, window.innerHeight);
+                });
+            }
+            
+            toggleDimension() {
+                this.is3D = !this.is3D;
+                const button = document.getElementById('toggleDimension');
+                button.textContent = this.is3D ? 'Switch to 2D' : 'Switch to 3D';
+                
+                this.animateTransition();
+            }
+            
+            animateTransition() {
+                const positions = this.pointsGeometry.attributes.position.array;
+                const startPositions = [...positions];
+                
+                let progress = 0;
+                const duration = 1000; // 1 second
+                const startTime = Date.now();
+                
+                const animate = () => {
+                    const elapsed = Date.now() - startTime;
+                    progress = Math.min(elapsed / duration, 1);
+                    
+                    // Smooth easing function
+                    const easeInOut = t => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+                    const easedProgress = easeInOut(progress);
+                    
+                    for (let i = 0; i < this.points.length; i++) {
+                        const point = this.points[i];
+                        const idx = i * 3;
+                        
+                        const from = this.is3D ? point.unrolled2D : point.original3D;
+                        const to = this.is3D ? point.original3D : point.unrolled2D;
+                        
+                        positions[idx] = from.x + (to.x - from.x) * easedProgress;
+                        positions[idx + 1] = from.y + (to.y - from.y) * easedProgress;
+                        positions[idx + 2] = from.z + (to.z - from.z) * easedProgress;
+                    }
+                    
+                    this.pointsGeometry.attributes.position.needsUpdate = true;
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(animate);
+                    }
+                };
+                
+                animate();
+            }
+            
+            toggleRotation() {
+                this.isRotating = !this.isRotating;
+                const button = document.getElementById('toggleRotation');
+                button.textContent = this.isRotating ? 'Stop Auto-Rotation' : 'Start Auto-Rotation';
+                button.classList.toggle('active', this.isRotating);
+            }
+            
+            resetView() {
+                this.targetRotationX = 0;
+                this.targetRotationY = 0;
+                this.camera.position.set(5, 3, 8);
+                this.camera.lookAt(0, 0, 0);
+            }
+            
+            animate() {
+                requestAnimationFrame(() => this.animate());
+                
+                // Smooth rotation interpolation
+                this.currentRotationX += (this.targetRotationX - this.currentRotationX) * 0.1;
+                this.currentRotationY += (this.targetRotationY - this.currentRotationY) * 0.1;
+                
+                // Auto rotation
+                if (this.isRotating) {
+                    this.targetRotationY += this.rotationSpeed;
+                }
+                
+                // Apply rotations
+                const distance = this.camera.position.length();
+                this.camera.position.x = distance * Math.sin(this.currentRotationY) * Math.cos(this.currentRotationX);
+                this.camera.position.y = distance * Math.sin(this.currentRotationX);
+                this.camera.position.z = distance * Math.cos(this.currentRotationY) * Math.cos(this.currentRotationX);
+                this.camera.lookAt(0, 0, 0);
+                
+                this.renderer.render(this.scene, this.camera);
+            }
+        }
+        
+        // Initialize the visualizer when the page loads
+        window.addEventListener('load', () => {
+            new SwissRollVisualizer();
+        });
+    </script>
+</body>
+</html>
