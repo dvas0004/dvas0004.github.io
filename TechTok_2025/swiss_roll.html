@@ -69,6 +69,19 @@
             max-width: 300px;
         }
         
+        #anomaly-info {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            background: rgba(220, 20, 60, 0.8);
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 12px;
+            max-width: 250px;
+            border: 2px solid #dc143c;
+        }
+        
         #canvas-container {
             width: 100%;
             height: 100%;
@@ -85,6 +98,7 @@
             <button id="toggleDimension">Switch to 3D</button>
             <button id="toggleRotation">Start Auto-Rotation</button>
             <button id="resetView">Reset View</button>
+            <button id="highlightAnomaly">Highlight Anomaly</button>
         </div>
         
         <div id="canvas-container"></div>
@@ -95,7 +109,13 @@
             • Wheel: Zoom in/out<br>
             • Points are colored by their position along the roll<br>
             • 3D view shows the rolled manifold<br>
-            • 2D view shows the "unrolled" structure
+            • 2D view shows the "unrolled" structure<br>
+            • <strong style="color: #ff6b6b;">Red point: Hidden anomaly (3D only!)</strong>
+        </div>
+
+        <div id="anomaly-info">
+            <strong>🚨 Anomaly Detection</strong><br>
+            The red point appears normal in 2D but is displaced in 3D space - this represents data that follows the manifold locally but deviates globally.
         </div>
     </div>
 
@@ -109,8 +129,10 @@
                 this.is3D = false;
                 this.isRotating = false;
                 this.rotationSpeed = 0.01;
+                this.anomalyHighlighted = false;
                 
                 this.points = [];
+                this.anomalyIndex = -1;
                 this.pointsGeometry = new THREE.BufferGeometry();
                 this.pointsMaterial = new THREE.PointsMaterial({ 
                     size: 0.05, 
@@ -154,31 +176,64 @@
                 const positions = [];
                 const colors = [];
                 
+                // Generate anomaly at a specific index (middle of dataset)
+                this.anomalyIndex = Math.floor(numPoints * 0.6);
+                
                 for (let i = 0; i < numPoints; i++) {
-                    // Generate parameter t (angle) and width w
-                    const t = 1.5 * Math.PI * (1 + 2 * Math.random()); // 1.5π to 4.5π
-                    const w = 21 * Math.random(); // width parameter
+                    let t, w, x, y, z, color;
                     
-                    // Swiss roll equations
-                    const x = t * Math.cos(t);
-                    const y = w;
-                    const z = t * Math.sin(t);
+                    if (i === this.anomalyIndex) {
+                        // Create anomalous point
+                        t = 2.8 * Math.PI; // Normal t parameter
+                        w = 10.5; // Normal w parameter
+                        
+                        // Normal Swiss roll position (what it should be)
+                        const normalX = t * Math.cos(t);
+                        const normalY = w;
+                        const normalZ = t * Math.sin(t);
+                        
+                        // Anomalous 3D position - displaced inward toward center
+                        x = normalX * 0.4; // Significantly closer to center
+                        y = normalY;
+                        z = normalZ * 0.4; // Significantly closer to center
+                        
+                        // Red color for anomaly
+                        color = new THREE.Color(1, 0.2, 0.2);
+                        
+                        // Store both normal 2D position and anomalous 3D position
+                        this.points.push({
+                            original3D: { x: x * 0.1, y: y * 0.1, z: z * 0.1 }, // Anomalous 3D
+                            unrolled2D: { x: t * 0.1, y: w * 0.1, z: 0 }, // Normal 2D
+                            t: t,
+                            w: w,
+                            isAnomaly: true
+                        });
+                    } else {
+                        // Generate normal points
+                        t = 1.5 * Math.PI * (1 + 2 * Math.random());
+                        w = 21 * Math.random();
+                        
+                        // Normal Swiss roll equations
+                        x = t * Math.cos(t);
+                        y = w;
+                        z = t * Math.sin(t);
+                        
+                        // Color based on t parameter
+                        const normalizedT = (t - 1.5 * Math.PI) / (3 * Math.PI);
+                        const hue = normalizedT * 360;
+                        color = new THREE.Color().setHSL(hue / 360, 0.8, 0.6);
+                        
+                        this.points.push({
+                            original3D: { x: x * 0.1, y: y * 0.1, z: z * 0.1 },
+                            unrolled2D: { x: t * 0.1, y: w * 0.1, z: 0 },
+                            t: t,
+                            w: w,
+                            isAnomaly: false
+                        });
+                    }
                     
-                    positions.push(x * 0.1, y * 0.1, z * 0.1); // Scale down for better viewing
-                    
-                    // Color based on t parameter (position along the roll)
-                    const normalizedT = (t - 1.5 * Math.PI) / (3 * Math.PI);
-                    const hue = normalizedT * 360;
-                    const color = new THREE.Color().setHSL(hue / 360, 0.8, 0.6);
+                    positions.push(x * 0.1, y * 0.1, z * 0.1);
                     colors.push(color.r, color.g, color.b);
-                    
-                    // Store original 2D coordinates for transition
-                    this.points.push({
-                        original3D: { x: x * 0.1, y: y * 0.1, z: z * 0.1 },
-                        unrolled2D: { x: t * 0.1, y: w * 0.1, z: 0 },
-                        t: t,
-                        w: w
-                    });
                 }
                 
                 // Set initial positions to 2D (unrolled) by default
@@ -246,6 +301,10 @@
                     this.resetView();
                 });
                 
+                document.getElementById('highlightAnomaly').addEventListener('click', () => {
+                    this.highlightAnomaly();
+                });
+                
                 // Handle window resize
                 window.addEventListener('resize', () => {
                     this.camera.aspect = window.innerWidth / window.innerHeight;
@@ -260,6 +319,32 @@
                 button.textContent = this.is3D ? 'Switch to 2D' : 'Switch to 3D';
                 
                 this.animateTransition();
+            }
+            
+            highlightAnomaly() {
+                this.anomalyHighlighted = !this.anomalyHighlighted;
+                const button = document.getElementById('highlightAnomaly');
+                button.textContent = this.anomalyHighlighted ? 'Normal Size' : 'Highlight Anomaly';
+                button.classList.toggle('active', this.anomalyHighlighted);
+                
+                // Update point size for anomaly
+                this.updateAnomalyDisplay();
+            }
+            
+            updateAnomalyDisplay() {
+                // Create custom material with varying point sizes if needed
+                if (this.anomalyHighlighted) {
+                    this.pointsMaterial.size = 0.08;
+                    
+                    // Make anomaly pulse
+                    const pulseSize = 0.1 + 0.05 * Math.sin(Date.now() * 0.005);
+                    // Note: Three.js PointsMaterial doesn't support per-point sizes easily
+                    // For simplicity, we'll just make all points slightly bigger
+                } else {
+                    this.pointsMaterial.size = 0.05;
+                }
+                
+                this.pointsMaterial.needsUpdate = true;
             }
             
             animateTransition() {
@@ -316,6 +401,11 @@
             
             animate() {
                 requestAnimationFrame(() => this.animate());
+                
+                // Update anomaly display if highlighted
+                if (this.anomalyHighlighted) {
+                    this.updateAnomalyDisplay();
+                }
                 
                 // Smooth rotation interpolation
                 this.currentRotationX += (this.targetRotationX - this.currentRotationX) * 0.1;
